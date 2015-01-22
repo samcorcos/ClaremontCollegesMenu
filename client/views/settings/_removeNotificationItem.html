@@ -1,0 +1,12 @@
+<template name="_removeNotificationItem">
+  {{#with removeNote}}
+    {{#ionItem}}
+      <span class="remove-notification-item">
+        {{this}}
+      </span>
+      <button class="button">
+        {{> ionIcon icon="close"}}
+      </button>
+    {{/ionItem}}
+  {{/with}}
+</template>

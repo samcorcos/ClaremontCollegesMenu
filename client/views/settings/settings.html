@@ -5,7 +5,20 @@
 
   {{#ionView}}
     {{#ionContent}}
-      <h1>this is settings</h1>
+
+
+        <h3 style="text-align:center;padding:1rem;">Remove Notification</h3>
+
+      {{#ionList}}
+        {{#each notifications}}
+          {{> _removeNotificationItem removeNote=this}}
+        {{/each}}
+      {{/ionList}}
+
+      <h3 style="text-align:center;padding:1rem;">Set Default College</h3>
+
+      {{> _defaultCollege}}
+
 
     {{/ionContent}}
   {{/ionView}}
