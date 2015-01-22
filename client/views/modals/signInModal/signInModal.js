@@ -8,7 +8,7 @@ Template.signInModal.helpers({
 
 Template.signInModal.events({
   'click #create-account-button': function(e,t) {
-    //first check to see if a user already exists? Or will meteor handle that?
+    // Needs to validate that the user has the proper email suffix
     Accounts.createUser({
       email: t.find("#email").value,
       password: t.find("#password").value

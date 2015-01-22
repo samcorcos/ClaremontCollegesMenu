@@ -16,5 +16,8 @@ Template.settings.helpers({
 Template.settings.events({
   'click #logout-button': function(e,t) {
     Meteor.logout();
+  },
+  'click #login-create-button': function(e,t) {
+    IonModal.open("signInModal");
   }
 })
