@@ -6,17 +6,9 @@ Meteor.methods({
 
 		// These values are hard-coded
 		var meals = ["Breakfast", "Lunch", "Dinner"];
-
 		// These will be the IDs we will iterate over to get the menu items.
 		var diningHalls = ["#frank_menu","#frary_menu", "#oldenborg_menu", "#cmc_menu", "#scripps_menu", "#pitzer_menu", "#mudd_menu"];
-
-    	// var table = $("#meal_header>th").text();
-    	var frank = $("#frank_menu").html();
-
-    	
     	var menus = [];
-    	
-
     	diningHalls.forEach(function(hall){
     		var thisMenu=$(hall).text();
     		thisMenu = thisMenu.split('\n');
@@ -31,20 +23,6 @@ Meteor.methods({
     		});
     		menus.push(newMenu)
     	});
-
-
-    	// Schema?
-    	// {
-    	// 	diningHallName: {
-    	// 		date: date,
-    	// 		breakfast: [items],
-    	// 		lunch: [items],
-    	// 		dinner:[items]
-    	// 	},
-    	// }
-
-
-
     return menus;
 	}
 });
