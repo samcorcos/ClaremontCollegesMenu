@@ -7,7 +7,7 @@ Template.home.rendered = function() {
   //   if (err) console.log("ERR", err);
   // })
 
-  IonModal.open('collegeSelectModal');
+  // IonModal.open('collegeSelectModal');
 
 };
 
