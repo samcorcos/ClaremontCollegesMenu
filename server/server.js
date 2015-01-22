@@ -50,8 +50,8 @@ Meteor.methods({
 		//take the same items from today and find them
 		//the ones that are found are on todays menu
 		
-		// fillTodaysMenu(menus);
-		return menus;
+		fillTodaysMenu(menus);
+		return 'BOOYA';
 	},
 });
 
@@ -61,7 +61,6 @@ var populateCollections = function(arrayOfMenuObjects){
 	menus.forEach(function(menuObject){
 		menuObject.breakfast.forEach(function(item){
 			var found = MenuItems.findOne({itemName:item,college:menuObject.hall,meal:'Breakfast'});	
-			console.log(!found);
 			if(!found){
 				MenuItems.insert({
 					itemName:item,
@@ -101,13 +100,15 @@ var populateCollections = function(arrayOfMenuObjects){
 	})
 };
 
-// var fillTodaysMenu = function(arrayOfMenuObjects){
-// 	var menus = arrayOfMenuObjects;
-// 	var todaysMenu = [];
-// 	menus.forEach(function(menuObject){
-// 		menuObject.breakfast.forEach(function(item){
-// 			var fetched = MenuItems.findOne({itemName:item,college:menuObject.hall,meal:'Breakfast'});
-// 		})
-// 	})
+var fillTodaysMenu = function(arrayOfMenuObjects){
+	var menus = arrayOfMenuObjects;
+	var todaysMenu = [];
+	menus.forEach(function(menuObject){
+		menuObject.breakfast.forEach(function(item){
+			var fetched = MenuItems.findOne({itemName:item,college:menuObject.hall,meal:'Breakfast'});
+			todaysMenu.push(fetched);
+		})
+	})
+	console.log(todaysMenu)
 
-// }
+}
