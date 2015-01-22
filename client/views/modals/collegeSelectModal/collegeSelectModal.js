@@ -1,6 +1,6 @@
 Template.collegeSelectModal.helpers({
   collegeList: function() {
-    return ["Claremont McKenna", "Harvey Mudd", "Scripps", "Pitzer", "Frary", "Frank", "Oldenborg"];
+    return [{name: "Claremont McKenna", route: "cmc"}, {name: "Harvey Mudd", route: "mudd"}, {name: "Scripps", route: "scripps"}, {name: "Pitzer", route: "pitzer"}, {name: "Frary", route: "frary"}, {name: "Frank", route: "frank"}, {name: "Oldenborg", route: "oldenborg"}];
   }
 })
 

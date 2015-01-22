@@ -29,7 +29,7 @@ Meteor.methods({
 					newMenu.push(fixedItem)
 				}
 			});
-		
+
 			var breakfastIndex = newMenu.indexOf('Breakfast');
 			var lunchIndex = newMenu.indexOf('Lunch');
 			var dinnerIndex = newMenu.indexOf('Dinner');
@@ -37,7 +37,7 @@ Meteor.methods({
 			var lunch = newMenu.slice(lunchIndex,dinnerIndex)
 			var dinner = newMenu.slice(dinnerIndex)
 			menus.push({
-				hall:halls[hall], 
+				hall:halls[hall],
 				breakfast:breakfast,
 				lunch:lunch,
 				dinner:dinner
@@ -53,7 +53,7 @@ var populateCollections = function(arrayOfMenuObjects){
 	var menus= arrayOfMenuObjects;
 	menus.forEach(function(menuObject){
 		menuObject.breakfast.forEach(function(item){
-			var found = MenuItems.findOne({itemName:item,college:menuObject.hall,meal:'Breakfast'})	
+			var found = MenuItems.findOne({itemName:item,college:menuObject.hall,meal:'Breakfast'})
 			if(!found){
 				MenuItems.insert({
 					itemName:item,
@@ -65,7 +65,7 @@ var populateCollections = function(arrayOfMenuObjects){
 			}
 		})
 		menuObject.lunch.forEach(function(item){
-			var found = MenuItems.findOne({itemName:item,college:menuObject.hall,meal:'Lunch'})	
+			var found = MenuItems.findOne({itemName:item,college:menuObject.hall,meal:'Lunch'})
 			if(!found){
 				MenuItems.insert({
 					itemName:item,
@@ -77,7 +77,7 @@ var populateCollections = function(arrayOfMenuObjects){
 			}
 		})
 		menuObject.dinner.forEach(function(item){
-			var found = MenuItems.findOne({itemName:item,college:menuObject.hall,meal:'Dinner'})	
+			var found = MenuItems.findOne({itemName:item,college:menuObject.hall,meal:'Dinner'})
 			if(!found){
 				MenuItems.insert({
 					itemName:item,
