@@ -6,6 +6,18 @@
   {{#ionView}}
     {{#ionContent}}
 
+      <h3 style="text-align:center;padding:1rem;">Account</h3>
+
+      {{#if currentUser}}
+        {{#ionItem}}
+        <div>
+          <span class="user-email">{{userEmail}}</span>
+          <button class="button" id="logout-button">Logout</button>
+        </div>
+        {{/ionItem}}
+      {{/if}}
+
+
         <h3 style="text-align:center;padding:1rem;">Remove Notification</h3>
 
       {{#ionList}}
