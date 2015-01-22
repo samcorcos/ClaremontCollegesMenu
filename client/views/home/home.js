@@ -30,3 +30,65 @@ Template._menuItem.events({
     console.log(this);
   }
 })
+
+Template.cmc.helpers({
+  todaysMenu: function() {
+    return ;
+    // return TodaysMenu.find(); // this will eventually contain a selector for only this colleges menu
+  },
+  college: function() {
+    return ["CMC"];
+  }
+});
+
+Template.mudd.helpers({
+  todaysMenu: function() {
+    return ;
+    // return TodaysMenu.find(); // this will eventually contain a selector for only this colleges menu
+  }
+});
+
+Template.scripps.helpers({
+  todaysMenu: function() {
+    return ;
+    // return TodaysMenu.find(); // this will eventually contain a selector for only this colleges menu
+  }
+});
+
+Template.pitzer.helpers({
+  todaysMenu: function() {
+    return ;
+    // return TodaysMenu.find(); // this will eventually contain a selector for only this colleges menu
+  }
+});
+
+Template.frary.helpers({
+  todaysMenu: function() {
+    return ;
+    // return TodaysMenu.find(); // this will eventually contain a selector for only this colleges menu
+  }
+});
+
+Template.frank.helpers({
+  todaysMenu: function() {
+    return ;
+    // return TodaysMenu.find(); // this will eventually contain a selector for only this colleges menu
+  }
+});
+
+Template.oldenborg.helpers({
+  todaysMenu: function() {
+    return ;
+    // return TodaysMenu.find(); // this will eventually contain a selector for only this colleges menu
+  }
+});
+
+Template.cmc.events({
+  'click #toggle-right-button': function(e,t) {
+    Router.go("/mudd")
+  },
+  'click #toggle-left-button': function(e,t) {
+    console.log("Running");
+    Router.go("/frary")
+  }
+});
