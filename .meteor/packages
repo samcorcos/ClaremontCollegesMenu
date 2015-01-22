@@ -22,3 +22,4 @@ meteoric:ionic-sass
 autopublish
 meteoric:autoform-ionic
 aldeed:autoform
+peerlibrary:async

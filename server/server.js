@@ -12,10 +12,10 @@ Meteor.methods({
 			"#pitzer_menu":"Pitzer",
 			"#mudd_menu":"Mudd"
 		};
-		// These values are hard-coded
-		var meals = ["Breakfast", "Lunch", "Dinner"];
+		// // These values are hard-coded
+		// var meals = ["Breakfast", "Lunch", "Dinner"];
 		// These will be the IDs we will iterate over to get the menu items.
-		var diningHalls = ["#frank_menu","#frary_menu", "#oldenborg_menu", "#cmc_menu", "#scripps_menu", "#pitzer_menu", "#mudd_menu"];
+		var diningHalls = ["#frank_menu"]//,"#frary_menu", "#oldenborg_menu", "#cmc_menu", "#scripps_menu", "#pitzer_menu", "#mudd_menu"];
 		var menus = [];
 
 		diningHalls.forEach(function(hall){
@@ -45,15 +45,22 @@ Meteor.methods({
 		});
 
 		populateCollections(menus);
+		
+		//take the same items from today and find them
+		//the ones that are found are on todays menu
+		
+		fillTodaysMenu(menus);
 		return 'Booya';
 	},
 });
 
 var populateCollections = function(arrayOfMenuObjects){
 	var menus= arrayOfMenuObjects;
+
 	menus.forEach(function(menuObject){
 		menuObject.breakfast.forEach(function(item){
-			var found = MenuItems.findOne({itemName:item,college:menuObject.hall,meal:'Breakfast'})	
+			var found = MenuItems.findOne({itemName:item,college:menuObject.hall,meal:'Breakfast'});	
+			console.log('FOUND LOG ' ,!found,item,found)
 			if(!found){
 				MenuItems.insert({
 					itemName:item,
@@ -61,6 +68,7 @@ var populateCollections = function(arrayOfMenuObjects){
 					meal:'Breakfast'
 				},function(err,res){
 					if(err){console.log(err)}
+						else{console.log('Breakfast added ',res)}
 				})
 			}
 		})
@@ -73,6 +81,7 @@ var populateCollections = function(arrayOfMenuObjects){
 					meal:'Lunch'
 				},function(err,res){
 					if(err){console.log(err)}
+						
 				})
 			}
 		})
@@ -85,8 +94,20 @@ var populateCollections = function(arrayOfMenuObjects){
 					meal:'Dinner'
 				},function(err,res){
 					if(err){console.log(err)}
+						
 				})
 			}
 		})
 	})
+};
+
+var fillTodaysMenu = function(arrayOfMenuObjects){
+	var menus = arrayOfMenuObjects;
+	var todaysMenu = [];
+	menus.forEach(function(menuObject){
+		menuObject.breakfast.forEach(function(item){
+			var fetched = MenuItems.findOne({itemName:item,college:menuObject.hall,meal:'Breakfast'});
+		})
+	})
+
 }

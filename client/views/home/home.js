@@ -1,8 +1,8 @@
 Template.home.rendered = function() {
-  // Meteor.call("getMenus", function(err, res) {
-  //   if (err) console.log("ERR", err);
-  //   console.log(res);
-  // })
+  Meteor.call("getMenus", function(err, res) {
+    if (err) console.log("ERR", err);
+    console.log(res);
+  })
   // Meteor.call("addItem", function(err, res) {
   //   if (err) console.log("ERR", err);
   // })
@@ -71,10 +71,18 @@ Template.frary.helpers({
 
 Template.frank.helpers({
   todaysMenu: function() {
-    return ;
-    // return TodaysMenu.find(); // this will eventually contain a selector for only this colleges menu
+    var test =  MenuItems.find({college:'Frank'}); // this will eventually contain a selector for only this colleges menu
+    console.log(test)
+    return test;
   }
 });
+
+Template.frank.rendered=function(){
+    var test =  MenuItems.find({college:'Frank'}); // this will eventually contain a selector for only this colleges menu
+    console.log(test)
+  
+}
+
 
 Template.oldenborg.helpers({
   todaysMenu: function() {
