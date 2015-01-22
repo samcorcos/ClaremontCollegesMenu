@@ -53,31 +53,40 @@ var populateCollections = function(arrayOfMenuObjects){
 	var menus= arrayOfMenuObjects;
 	menus.forEach(function(menuObject){
 		menuObject.breakfast.forEach(function(item){
-			MenuItems.insert({
-				itemName:item,
-				college:menuObject.hall,
-				meal:'Breakfast'
-			},function(err,res){
-				if(err){console.log(err)}
-			})
+			var found = MenuItems.findOne({itemName:item,college:menuObject.hall,meal:'Breakfast'})	
+			if(!found){
+				MenuItems.insert({
+					itemName:item,
+					college:menuObject.hall,
+					meal:'Breakfast'
+				},function(err,res){
+					if(err){console.log(err)}
+				})
+			}
 		})
 		menuObject.lunch.forEach(function(item){
-			MenuItems.insert({
-				itemName:item,
-				college:menuObject.hall,
-				meal:'Lunch'
-			},function(err,res){
-				if(err){console.log(err)}
-			})
+			var found = MenuItems.findOne({itemName:item,college:menuObject.hall,meal:'Lunch'})	
+			if(!found){
+				MenuItems.insert({
+					itemName:item,
+					college:menuObject.hall,
+					meal:'Lunch'
+				},function(err,res){
+					if(err){console.log(err)}
+				})
+			}
 		})
 		menuObject.dinner.forEach(function(item){
-			MenuItems.insert({
-				itemName:item,
-				college:menuObject.hall,
-				meal:'Dinner'
-			},function(err,res){
-				if(err){console.log(err)}
-			})
+			var found = MenuItems.findOne({itemName:item,college:menuObject.hall,meal:'Dinner'})	
+			if(!found){
+				MenuItems.insert({
+					itemName:item,
+					college:menuObject.hall,
+					meal:'Dinner'
+				},function(err,res){
+					if(err){console.log(err)}
+				})
+			}
 		})
 	})
 }
