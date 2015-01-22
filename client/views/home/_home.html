@@ -1,16 +1,22 @@
 <template name="home">
+<!-- {{#with college}}
   {{#contentFor "headerTitle"}}
-    <h1 class="title">Menus</h1>
+    <h1 class="title">test{{this}}{{college}}</h1>
+  {{/contentFor}}
+{{/with}} -->
+
+  {{#contentFor "headerTitle"}}
+    <h1 class="title">Menu</h1>
   {{/contentFor}}
 
   {{#contentFor "headerButtonLeft"}}
-    <button class="button">
+    <button id="toggle-left-button" class="button">
       {{>ionIcon icon="chevron-left"}}
     </button>
   {{/contentFor}}
 
   {{#contentFor "headerButtonRight"}}
-    <button class="button pull-right">
+    <button id="toggle-right-button" class="button pull-right">
       {{>ionIcon icon="chevron-right" }}
     </button>
   {{/contentFor}}
@@ -18,8 +24,12 @@
   {{#ionView}}
     {{#ionContent}}
 
+    {{#with college}}
+      <h3 style="text-align:center;">{{this}}</h3>
+    {{/with}}
+
       {{#ionList}}
-      
+
         {{#each database}}
           {{> _menuItem database=this}}
         {{/each}}
