@@ -3,6 +3,7 @@ Meteor.methods({
 		var results = Meteor.http.get("https://aspc.pomona.edu/menu/", {timeout: 30000});
 		var html = results.content;
 		$ = cheerio.load(html)
+
 		var halls ={
 			"#frank_menu" : "Frank",
 			"#frary_menu": "Frary",
@@ -25,6 +26,7 @@ Meteor.methods({
 			var newMenu=[];
 			thisMenu.forEach(function(item,index){
 				var fixedItem = item.replace(/\t+/,'');
+				var fixedItem = fixedItem.replace(' ','');
 				if(fixedItem!==''){
 					newMenu.push(fixedItem)
 				}
@@ -45,12 +47,11 @@ Meteor.methods({
 		});
 
 		populateCollections(menus);
-		
 		//take the same items from today and find them
 		//the ones that are found are on todays menu
 		
-		fillTodaysMenu(menus);
-		return 'Booya';
+		// fillTodaysMenu(menus);
+		return menus;
 	},
 });
 
@@ -60,8 +61,7 @@ var populateCollections = function(arrayOfMenuObjects){
 	menus.forEach(function(menuObject){
 		menuObject.breakfast.forEach(function(item){
 			var found = MenuItems.findOne({itemName:item,college:menuObject.hall,meal:'Breakfast'});	
-			console.log('FOUND LOG ' ,!found,item,found)
-
+			console.log(!found);
 			if(!found){
 				MenuItems.insert({
 					itemName:item,
@@ -69,7 +69,6 @@ var populateCollections = function(arrayOfMenuObjects){
 					meal:'Breakfast'
 				},function(err,res){
 					if(err){console.log(err)}
-						else{console.log('Breakfast added ',res)}
 				})
 			}
 		})
@@ -102,13 +101,13 @@ var populateCollections = function(arrayOfMenuObjects){
 	})
 };
 
-var fillTodaysMenu = function(arrayOfMenuObjects){
-	var menus = arrayOfMenuObjects;
-	var todaysMenu = [];
-	menus.forEach(function(menuObject){
-		menuObject.breakfast.forEach(function(item){
-			var fetched = MenuItems.findOne({itemName:item,college:menuObject.hall,meal:'Breakfast'});
-		})
-	})
+// var fillTodaysMenu = function(arrayOfMenuObjects){
+// 	var menus = arrayOfMenuObjects;
+// 	var todaysMenu = [];
+// 	menus.forEach(function(menuObject){
+// 		menuObject.breakfast.forEach(function(item){
+// 			var fetched = MenuItems.findOne({itemName:item,college:menuObject.hall,meal:'Breakfast'});
+// 		})
+// 	})
 
-}
+// }
