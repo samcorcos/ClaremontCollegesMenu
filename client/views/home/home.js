@@ -6,6 +6,9 @@ Template.home.rendered = function() {
   // Meteor.call("addItem", function(err, res) {
   //   if (err) console.log("ERR", err);
   // })
+
+  IonModal.open('collegeSelectModal');
+
 };
 
 Template.home.helpers({

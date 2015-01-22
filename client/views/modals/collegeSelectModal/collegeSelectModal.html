@@ -1,9 +1,11 @@
 <template name="collegeSelectModal">
   {{#ionModal title="Select College"}}
-    {{#ionItem}}
-      {{#each collegeList}}
-        <p>{{this}}</p>
-      {{/each}}
-    {{/ionItem}}
+
+    {{#each collegeList}}
+      {{#ionItem}}
+        <a href="" class="select-college-modal">{{this}}</a>
+      {{/ionItem}}
+    {{/each}}
+
   {{/ionModal}}
 </template>
