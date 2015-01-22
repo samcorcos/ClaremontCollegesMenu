@@ -20,3 +20,13 @@ Template.home.helpers({
 Template.home.events({
 
 });
+
+
+Template._menuItem.events({
+  'click button': function(e,t) {
+    if (!Meteor.loggingIn() && !Meteor.user()) {
+      IonModal.open('signInModal');
+    }
+    console.log(this);
+  }
+})

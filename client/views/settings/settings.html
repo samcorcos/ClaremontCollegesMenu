@@ -6,6 +6,28 @@
   {{#ionView}}
     {{#ionContent}}
 
+      <h3 style="text-align:center;padding:1rem;">Account</h3>
+
+      {{#if currentUser}}
+        {{#ionItem}}
+        <div>
+          <span class="user-email">{{userEmail}}</span>
+          <button class="button" id="logout-button">Logout</button>
+        </div>
+        {{/ionItem}}
+      {{else}}
+        {{#ionItem}}
+        <div>
+          <span>You are not logged in</span>
+          <button class="button" id="login-create-button">Login/Create</button>
+        </div>
+        <!-- <div>
+          <button class="button" id="change-password-button">Change Password</button>
+          <button class="button" id="recover-password-button">Recover Password</button>
+        </div> -->
+        {{/ionItem}}
+      {{/if}}
+
         <h3 style="text-align:center;padding:1rem;">Remove Notification</h3>
 
       {{#ionList}}
@@ -17,6 +39,8 @@
       <h3 style="text-align:center;padding:1rem;">Set Default College</h3>
 
       {{> _defaultCollege}}
+
+      <div style="height:3rem;"></div>
 
 
     {{/ionContent}}
