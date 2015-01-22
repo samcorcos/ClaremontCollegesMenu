@@ -5,7 +5,12 @@
 
   {{#ionView}}
     {{#ionContent}}
-      <h1>this is notifications</h1>
+
+      {{#ionList}}
+        {{#each notifications}}
+          {{> _notificationItem notification=this}}
+        {{/each}}
+      {{/ionList}}
 
     {{/ionContent}}
   {{/ionView}}
