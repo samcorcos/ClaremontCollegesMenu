@@ -1,9 +1,24 @@
 <template name="signInModal">
   {{#ionModal title="Sign In"}}
     <div class="sign-in-modal">
-      <input type="text"> Email
-      <input type="text"> Password
-      <input type="text"> Favorite Dining Hall
+<!--       {{#autoForm collection="Database" id="sign-in-form" type="insert"}}
+  {{> afQuickField name="email"}}
+  {{> afQuickField name="password"}}
+  <p>test</p>
+{{/autoForm}} -->
+      {{#ionItem}}
+      <input type="text">email
+
+      {{/ionItem}}
+      {{#ionItem}}
+      <input type="text">password
+
+      {{/ionItem}}
+      {{#ionItem}}
+      <input type="text">college
+      
+      {{/ionItem}}
+
     </div>
   {{/ionModal}}
 </template>

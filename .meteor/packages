@@ -19,5 +19,6 @@ aldeed:collection2
 meteoric:ionic
 meteoric:ionicons-sass
 meteoric:ionic-sass
-aldeed:autoform
 autopublish
+meteoric:autoform-ionic
+aldeed:autoform
