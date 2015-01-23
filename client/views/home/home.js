@@ -9,8 +9,8 @@ Template._home.helpers({
   sorted: function(cursor) {
     var tempArray = cursor.fetch(); // this is an array of the items
     tempArray.sort(function(a,b) {
-      var keyA = a.upvotes.length;
-      var keyB = b.upvotes.length;
+      a.hasOwnProperty("upvotes") ? keyA = a.upvotes.length : keyA = 0;
+      b.hasOwnProperty("upvotes") ? keyB = b.upvotes.length : keyB = 0;
       if (keyA < keyB) return 1;
       if (keyA > keyB) return -1;
       return 0;
