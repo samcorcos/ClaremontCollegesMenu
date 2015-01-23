@@ -11,7 +11,7 @@
           {{/if}}
         </button>
         <span class="menu-item">{{itemName}}</span>
-        <i class="icon ion-ios-star-outline starred"></i>
+        <i class="icon {{checkStarred _id currentUser.profile.starred}} starred"></i>
       </div>
 <!--       <button class="button">
   {{> ionIcon icon="ios-star-outline"}}

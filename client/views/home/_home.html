@@ -21,26 +21,41 @@
     </button>
   {{/contentFor}}
 
+<!--   {{#each college}}
+<div class="bar bar-subheader bar-assertive">
+  <h2 class="title">{{this}}</h2>
+</div>
+{{/each}} -->
+
   {{#ionView}}
     {{#ionContent}}
 
-      {{#with college}}
-        <h3 style="text-align:center;">CMC</h3>
-      {{/with}}
 
       {{#ionList}}
 
-        <h3 style="text-align:center;padding:1rem;">Breakfast</h3>
+        {{#ionItem}}
+          <div class="bar bar-header bar-dark">
+            <h1 style="transform:translateY(-7px)" class="title">Breakfast</h1>
+          </div>
+        {{/ionItem}}
         {{#each sorted breakfast}}
           {{> _menuItem menuItem=this}}
         {{/each}}
 
-        <h3 style="text-align:center;padding:1rem;">Lunch</h3>
+        {{#ionItem}}
+        <div class="bar bar-header bar-dark">
+          <h1 style="transform:translateY(-7px)" class="title">Lunch</h1>
+        </div>
+        {{/ionItem}}
         {{#each sorted lunch}}
           {{> _menuItem menuItem=this}}
         {{/each}}
 
-        <h3 style="text-align:center;padding:1rem;">Dinner</h3>
+        {{#ionItem}}
+        <div class="bar bar-header bar-dark">
+          <h1 style="transform:translateY(-7px)" class="title">Dinner</h1>
+        </div>
+        {{/ionItem}}
         {{#each sorted dinner}}
           {{> _menuItem menuItem=this}}
         {{/each}}

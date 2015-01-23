@@ -129,3 +129,16 @@ Template.oldenborg.helpers({
 Template.landing.rendered = function() {
   IonModal.open("signInModal")
 }
+
+Template._menuItem.helpers({
+  checkStarred: function(itemId,userStars){
+  if (!userStars) {
+    return "ion-ios-star-outline";
+  } else {
+    if(userStars.indexOf(itemId)!==-1){
+      return "ion-ios-star";
+    }
+      return "ion-ios-star-outline";
+    }
+  }
+})
