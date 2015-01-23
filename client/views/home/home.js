@@ -123,21 +123,3 @@ Template.oldenborg.helpers({
     return ["Oldenborg"];
   }
 });
-
-Template.cmc.events({
-  'click #toggle-right-button': function(e,t) {
-    Router.go("/mudd")
-  },
-  'click #toggle-left-button': function(e,t) {
-    console.log("Running");
-    Router.go("/frary")
-  }
-});
-
-Template._menuItem.events({
-  'click .starred': function(e,t) {
-    console.log(e.currentTarget);
-    t.$(".starred").toggleClass("ion-ios-star-outline");
-    t.$(".starred").toggleClass("ion-ios-star");
-  }
-})
