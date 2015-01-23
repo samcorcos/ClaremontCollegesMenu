@@ -1,17 +1,11 @@
-Template.home.rendered = function() {
+Template._home.rendered = function() {
   // Meteor.call("getMenus", function(err, res) {
   //   if (err) console.log("ERR", err);
   //   console.log(res);
   // })
-  // Meteor.call("addItem", function(err, res) {
-  //   if (err) console.log("ERR", err);
-  // })
-
-  // IonModal.open('collegeSelectModal');
-
 };
 
-Template.home.helpers({
+Template._home.helpers({
   sorted: function(cursor) {
     var tempArray = cursor.fetch(); // this is an array of the items
     tempArray.sort(function(a,b) {
@@ -22,10 +16,6 @@ Template.home.helpers({
       return 0;
     })
     return tempArray;
-    // var temp = [];
-    // for (var i = 0; i < cursor.fetch().length; i++) {
-    //
-    // }
   }
 });
 

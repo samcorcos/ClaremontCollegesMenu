@@ -1,29 +1,58 @@
+<template name="landing">
+  {{#contentFor "headerTitle"}}
+  <h1 class="title">Menu</h1>
+  {{/contentFor}}
+
+  {{#ionView}}
+  {{#ionContent}}
+
+  <div class="empty-view">
+    {{> ionIcon icon="ios-bolt"}}
+    No menu selected!
+  </div>
+
+  {{/ionContent}}
+  {{/ionView}}
+</template>
+
 <template name="cmc">
   {{#with breakfast lunch dinner}}
-    {{> home breakfast=breakfast lunch=lunch dinner=dinner}}
+    {{> _home breakfast=breakfast lunch=lunch dinner=dinner}}
   {{/with}}
 </template>
 
 <template name="mudd">
-  {{> home}}
+  {{#with breakfast lunch dinner}}
+    {{> _home breakfast=breakfast lunch=lunch dinner=dinner}}
+  {{/with}}
 </template>
 
 <template name="scripps">
-  {{> home}}
+  {{#with breakfast lunch dinner}}
+    {{> _home breakfast=breakfast lunch=lunch dinner=dinner}}
+  {{/with}}
 </template>
 
 <template name="pitzer">
-  {{> home}}
+  {{#with breakfast lunch dinner}}
+    {{> _home breakfast=breakfast lunch=lunch dinner=dinner}}
+  {{/with}}
 </template>
 
 <template name="frary">
-  {{> home}}
+  {{#with breakfast lunch dinner}}
+    {{> _home breakfast=breakfast lunch=lunch dinner=dinner}}
+  {{/with}}
 </template>
 
 <template name="frank">
-  {{> home}}
+  {{#with breakfast lunch dinner}}
+    {{> _home breakfast=breakfast lunch=lunch dinner=dinner}}
+  {{/with}}
 </template>
 
 <template name="oldenborg">
-  {{> home}}
+  {{#with breakfast lunch dinner}}
+    {{> _home breakfast=breakfast lunch=lunch dinner=dinner}}
+  {{/with}}
 </template>

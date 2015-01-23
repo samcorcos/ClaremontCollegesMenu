@@ -3,9 +3,9 @@ Template.layout.events({
     IonModal.open("collegeSelectModal")
   },
   'click .ion-ios-book-outline': function(e,t) {
-    var fav = Meteor.user().profile.favorite;
+    // var fav = Meteor.user().profile.favorite;
     // Router.go("/");
-    Router.go("/"+fav);
+    // Router.go("/");
     // IonModal.open("collegeSelectModal")
   }
 })
