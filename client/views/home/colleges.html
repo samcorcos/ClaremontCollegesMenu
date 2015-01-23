@@ -1,6 +1,6 @@
 <template name="cmc">
-  {{#with todaysMenu}}
-    {{> home todaysMenu=todaysMenu}}
+  {{#with breakfast lunch dinner}}
+    {{> home breakfast=breakfast lunch=lunch dinner=dinner}}
   {{/with}}
 </template>
 

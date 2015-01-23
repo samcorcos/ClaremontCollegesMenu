@@ -12,15 +12,32 @@ Template.home.rendered = function() {
 };
 
 Template.home.helpers({
-  database: function() {
-    return Database.find();
+  sorted: function(cursor) {
+    var tempArray = cursor.fetch(); // this is an array of the items
+    tempArray.sort(function(a,b) {
+      var keyA = a.upvotes.length;
+      var keyB = b.upvotes.length;
+      if (keyA < keyB) return 1;
+      if (keyA > keyB) return -1;
+      return 0;
+    })
+    return tempArray;
+    // var temp = [];
+    // for (var i = 0; i < cursor.fetch().length; i++) {
+    //
+    // }
   }
 });
 
 Template.cmc.helpers({
-  todaysMenu: function() {
-    return MenuItems.find({college: "CMC"})
-    // return TodaysMenu.find({college: "CMC"}); // this will eventually contain a selector for only this colleges menu
+  breakfast: function() {
+    return MenuItems.find({college: "CMC", meal: "Breakfast"})
+  },
+  lunch: function() {
+    return MenuItems.find({college: "CMC", meal: "Lunch"})
+  },
+  dinner: function() {
+    return MenuItems.find({college: "CMC", meal: "Dinner"})
   },
   college: function() {
     return ["CMC"];
