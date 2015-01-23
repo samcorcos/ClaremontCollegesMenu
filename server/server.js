@@ -104,26 +104,20 @@ var populateCollections = function(arrayOfMenuObjects){
 var fillTodaysMenu = function(arrayOfMenuObjects){
 	TodaysMenu.remove({});
 	var menus = arrayOfMenuObjects;
-	var todaysMenu = {};
+	// var todaysMenu = [];
 	menus.forEach(function(menuObject){
-		todaysMenu[menuObject.hall] = {breakfast:[],lunch:[],dinner:[]};
+		// todaysMenu[menuObject.hall] = {breakfast:[],lunch:[],dinner:[]};
 		menuObject.breakfast.forEach(function(item){
 			var fetched = MenuItems.findOne({itemName:item,college:menuObject.hall,meal:'Breakfast'});
-			todaysMenu[menuObject.hall].breakfast.push(fetched);
+			TodaysMenu.insert(fetched)
 		});
 		menuObject.lunch.forEach(function(item){
 			var fetched = MenuItems.findOne({itemName:item,college:menuObject.hall,meal:'Lunch'});
-			todaysMenu[menuObject.hall].lunch.push(fetched);
+			TodaysMenu.insert(fetched)
 		});
 		menuObject.dinner.forEach(function(item){
 			var fetched = MenuItems.findOne({itemName:item,college:menuObject.hall,meal:'Dinner'});
-			todaysMenu[menuObject.hall].dinner.push(fetched);
+			TodaysMenu.insert(fetched)
 		});
-		TodaysMenu.insert(todaysMenu,function(err,res){
-			err ? console.log(err) : console.log('RES ',res);
-		});
-			
-		todaysMenu={};
 	})
-
 };
