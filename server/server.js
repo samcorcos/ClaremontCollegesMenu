@@ -50,8 +50,8 @@ Meteor.methods({
 		//take the same items from today and find them
 		//the ones that are found are on todays menu
 		
-		fillTodaysMenu(menus);
-		return 'BOOYA';
+		return fillTodaysMenu(menus);
+		
 	},
 });
 
@@ -70,7 +70,7 @@ var populateCollections = function(arrayOfMenuObjects){
 					if(err){console.log(err)}
 				})
 			}
-		})
+		});
 		menuObject.lunch.forEach(function(item){
 			var found = MenuItems.findOne({itemName:item,college:menuObject.hall,meal:'Lunch'})
 			if(!found){
@@ -83,7 +83,7 @@ var populateCollections = function(arrayOfMenuObjects){
 						
 				})
 			}
-		})
+		});
 		menuObject.dinner.forEach(function(item){
 			var found = MenuItems.findOne({itemName:item,college:menuObject.hall,meal:'Dinner'})
 			if(!found){
@@ -96,7 +96,7 @@ var populateCollections = function(arrayOfMenuObjects){
 						
 				})
 			}
-		})
+		});
 	})
 };
 
@@ -107,8 +107,18 @@ var fillTodaysMenu = function(arrayOfMenuObjects){
 		menuObject.breakfast.forEach(function(item){
 			var fetched = MenuItems.findOne({itemName:item,college:menuObject.hall,meal:'Breakfast'});
 			todaysMenu.push(fetched);
-		})
+		});
+		menuObject.lunch.forEach(function(item){
+			var fetched = MenuItems.findOne({itemName:item,college:menuObject.hall,meal:'Lunch'});
+			todaysMenu.push(fetched);
+		});
+		menuObject.dinner.forEach(function(item){
+			var fetched = MenuItems.findOne({itemName:item,college:menuObject.hall,meal:'Dinner'});
+			todaysMenu.push(fetched);
+		});
 	})
-	console.log(todaysMenu)
-
-}
+	// TodaysMenu.insert(todaysMenu,function(err,res){
+	// 	err ? console.log(err) : console.log('RES ',res);
+	// });
+	return todaysMenu;
+};
