@@ -32,12 +32,13 @@ Meteor.methods({
 				}
 			});
 
+			console.log('NEW MENU ',newMenu)
 			var breakfastIndex = newMenu.indexOf('Breakfast');
 			var lunchIndex = newMenu.indexOf('Lunch');
 			var dinnerIndex = newMenu.indexOf('Dinner');
-			var breakfast = newMenu.slice(breakfastIndex,lunchIndex)
-			var lunch = newMenu.slice(lunchIndex,dinnerIndex)
-			var dinner = newMenu.slice(dinnerIndex)
+			var breakfast = newMenu.slice(breakfastIndex+1,lunchIndex)
+			var lunch = newMenu.slice(lunchIndex+1,dinnerIndex)
+			var dinner = newMenu.slice(dinnerIndex+1)
 			menus.push({
 				hall:halls[hall],
 				breakfast:breakfast,
