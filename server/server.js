@@ -119,6 +119,6 @@ var fillTodaysMenu = function(arrayOfMenuObjects){
 	})
 	// TodaysMenu.insert(todaysMenu,function(err,res){
 	// 	err ? console.log(err) : console.log('RES ',res);
-	// });
+	// });	//This should be feeding into todays menu according to docs, but errors
 	return todaysMenu;
 };
