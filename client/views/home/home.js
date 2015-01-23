@@ -1,8 +1,8 @@
 Template._home.rendered = function() {
-  // Meteor.call("getMenus", function(err, res) {
-  //   if (err) console.log("ERR", err);
-  //   console.log(res);
-  // })
+  Meteor.call("getMenus", function(err, res) {
+    if (err) console.log("ERR", err);
+    console.log(res);
+  })
 };
 
 Template._home.helpers({
@@ -123,3 +123,11 @@ Template.oldenborg.helpers({
     return ["Oldenborg"];
   }
 });
+
+Template._menuItem.helpers({
+  checkStarred: function(itemId,userStars){
+    if(userStars.indexOf(itemId)!==-1){
+      return "ion-ios-star";
+    } return "ion-ios-star-outline";
+  }
+})

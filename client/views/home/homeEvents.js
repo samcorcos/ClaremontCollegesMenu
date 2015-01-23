@@ -21,8 +21,11 @@ Template.cmc.events({
 
 Template._menuItem.events({
   'click .starred': function(e,t) {
+    //For functionality to work right, 
+    //these need to be filled in based on user preference off the bat
     t.$(".starred").toggleClass("ion-ios-star-outline");
     t.$(".starred").toggleClass("ion-ios-star");
+    Meteor.call("toggleStarred",this._id);
   }
-
 })
+
