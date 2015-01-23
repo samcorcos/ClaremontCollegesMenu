@@ -6,8 +6,7 @@ Meteor.methods({
     // Meteor.user().profile.starred
   },
   changeDefault: function(newDefault) {
-    var userId = Meteor.user()._id;
-    Meteor.users.update({ _id: userId},{$set: {"profile.favorite": newDefault }})
+    Meteor.users.update({ _id: Meteor.user()._id},{$set: {"profile.favorite": newDefault }})
   }
 
 })

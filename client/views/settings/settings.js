@@ -2,6 +2,7 @@ Template.settings.rendered = function() {
   if (!Meteor.loggingIn() && !Meteor.user()) {
     IonModal.open('signInModal');
   }
+  console.log(Session.get("favorites"));
 }
 
 Template.settings.helpers({
@@ -21,7 +22,30 @@ Template.settings.events({
     IonModal.open("signInModal");
   },
   'change #new-default-college': function(e,t) {
-    var newValue = t.find("#new-default-college").value;
-    Meteor.call('changeDefault', newValue)
+    Meteor.call('changeDefault', t.find("#new-default-college").value)
+  }
+})
+
+Template._defaultCollege.helpers({
+  selectCMC: function() {
+    Session.get("favorite") == "cmc" ? true : false;
+  },
+  selectMudd: function() {
+    Session.get("favorite") == "mudd" ? true : false;
+  },
+  selectScripps: function() {
+    Session.get("favorite") == "scripps" ? true : false;
+  },
+  selectFrank: function() {
+    Session.get("favorite") == "frank" ? true : false;
+  },
+  selectPitzer: function() {
+    Session.get("favorite") == "pitzer" ? true : false;
+  },
+  selectFrary: function() {
+    Session.get("favorite") == "frary" ? true : false;
+  },
+  selectOldenborg: function() {
+    Session.get("favorite") == "oldenborg" ? true : false;
   }
 })
