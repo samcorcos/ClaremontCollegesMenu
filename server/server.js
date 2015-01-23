@@ -58,7 +58,7 @@ Meteor.methods({
 
 var populateCollections = function(arrayOfMenuObjects){
 	var menus= arrayOfMenuObjects;
-	var today = new Date();
+	var today = moment().format("MMMM D YYYY");
 	menus.forEach(function(menuObject){
 		menuObject.breakfast.forEach(function(item){
 			MenuItems.upsert({itemName:item,college:menuObject.hall,meal:'Breakfast'},
