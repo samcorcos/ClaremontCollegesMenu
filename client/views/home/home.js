@@ -133,3 +133,11 @@ Template.cmc.events({
     Router.go("/frary")
   }
 });
+
+Template._menuItem.events({
+  'click .starred': function(e,t) {
+    console.log(e.currentTarget);
+    t.$(".starred").toggleClass("ion-ios-star-outline");
+    t.$(".starred").toggleClass("ion-ios-star");
+  }
+})

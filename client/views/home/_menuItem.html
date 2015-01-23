@@ -1,11 +1,12 @@
 <template name="_menuItem">
   {{#with menuItem}} <!-- This instantiates the instance with the word "menuItem" as the variable passed through -->
-      <div class="item item-button-left">
+      <div class="item item-button-left item-icon-right">
         <button class="button">
           {{> ionIcon icon="arrow-up-c" }}
           {{upvotes.length}}
         </button>
         <span class="menu-item">&nbsp;{{itemName}}</span>
+        <i class="icon ion-ios-star-outline starred"></i>
       </div>
 <!--       <button class="button">
   {{> ionIcon icon="ios-star-outline"}}
