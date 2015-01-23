@@ -6,13 +6,16 @@
   {{#ionView}}
     {{#ionContent}}
 
-    <h1 style="text-align:center;margin-top:30vh">Recommendations coming soon!</h1>
-
       <!-- {{#ionList}}
         {{#each recommendations}}
           {{> _recItem rec=this}}
         {{/each}}
       {{/ionList}} -->
+
+      <div class="empty-view">
+        {{> ionIcon icon="ios-bolt"}}
+        Recommendations coming soon!
+      </div>
 
     {{/ionContent}}
   {{/ionView}}
