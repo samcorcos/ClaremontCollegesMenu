@@ -45,52 +45,92 @@ Template.cmc.helpers({
 });
 
 Template.mudd.helpers({
-  todaysMenu: function() {
-    return ;
-    // return TodaysMenu.find(); // this will eventually contain a selector for only this colleges menu
+  breakfast: function() {
+    return MenuItems.find({college: "Mudd", meal: "Breakfast"})
+  },
+  lunch: function() {
+    return MenuItems.find({college: "Mudd", meal: "Lunch"})
+  },
+  dinner: function() {
+    return MenuItems.find({college: "Mudd", meal: "Dinner"})
+  },
+  college: function() {
+    return ["Mudd"];
   }
 });
 
 Template.scripps.helpers({
-  todaysMenu: function() {
-    return ;
-    // return TodaysMenu.find(); // this will eventually contain a selector for only this colleges menu
+  breakfast: function() {
+    return MenuItems.find({college: "Scripps", meal: "Breakfast"})
+  },
+  lunch: function() {
+    return MenuItems.find({college: "Scripps", meal: "Lunch"})
+  },
+  dinner: function() {
+    return MenuItems.find({college: "Scripps", meal: "Dinner"})
+  },
+  college: function() {
+    return ["Scripps"];
   }
 });
 
 Template.pitzer.helpers({
-  todaysMenu: function() {
-    return ;
-    // return TodaysMenu.find(); // this will eventually contain a selector for only this colleges menu
+  breakfast: function() {
+    return MenuItems.find({college: "Pitzer", meal: "Breakfast"})
+  },
+  lunch: function() {
+    return MenuItems.find({college: "Pitzer", meal: "Lunch"})
+  },
+  dinner: function() {
+    return MenuItems.find({college: "Pitzer", meal: "Dinner"})
+  },
+  college: function() {
+    return ["Pitzer"];
   }
 });
 
 Template.frary.helpers({
-  todaysMenu: function() {
-    return ;
-    // return TodaysMenu.find(); // this will eventually contain a selector for only this colleges menu
+  breakfast: function() {
+    return MenuItems.find({college: "Frary", meal: "Breakfast"})
+  },
+  lunch: function() {
+    return MenuItems.find({college: "Frary", meal: "Lunch"})
+  },
+  dinner: function() {
+    return MenuItems.find({college: "Frary", meal: "Dinner"})
+  },
+  college: function() {
+    return ["Frary"];
   }
 });
 
 Template.frank.helpers({
-  todaysMenu: function() {
-    var test =  MenuItems.find({college:'Frank'}); // this will eventually contain a selector for only this colleges menu
-    console.log(test)
-    return test;
+  breakfast: function() {
+    return MenuItems.find({college: "Frank", meal: "Breakfast"})
+  },
+  lunch: function() {
+    return MenuItems.find({college: "Frank", meal: "Lunch"})
+  },
+  dinner: function() {
+    return MenuItems.find({college: "Frank", meal: "Dinner"})
+  },
+  college: function() {
+    return ["Frank"];
   }
 });
 
-Template.frank.rendered=function(){
-    var test =  MenuItems.find({college:'Frank'}); // this will eventually contain a selector for only this colleges menu
-    console.log(test)
-
-}
-
-
 Template.oldenborg.helpers({
-  todaysMenu: function() {
-    return ;
-    // return TodaysMenu.find(); // this will eventually contain a selector for only this colleges menu
+  breakfast: function() {
+    return MenuItems.find({college: "Oldenborg", meal: "Breakfast"})
+  },
+  lunch: function() {
+    return MenuItems.find({college: "Oldenborg", meal: "Lunch"})
+  },
+  dinner: function() {
+    return MenuItems.find({college: "Oldenborg", meal: "Dinner"})
+  },
+  college: function() {
+    return ["Oldenborg"];
   }
 });
 
