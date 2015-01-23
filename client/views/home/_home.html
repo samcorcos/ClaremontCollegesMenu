@@ -10,13 +10,13 @@
   {{/contentFor}}
 
   {{#contentFor "headerButtonLeft"}}
-    <button id="toggle-left-button" class="button">
+    <button id="toggle-left-button" class="button button-clear">
       {{>ionIcon icon="chevron-left"}}
     </button>
   {{/contentFor}}
 
   {{#contentFor "headerButtonRight"}}
-    <button id="toggle-right-button" class="button pull-right">
+    <button id="toggle-right-button" class="button button-clear pull-right">
       {{>ionIcon icon="chevron-right" }}
     </button>
   {{/contentFor}}
@@ -24,16 +24,14 @@
   {{#ionView}}
     {{#ionContent}}
 
-    {{#with college}}
-      <h3 style="text-align:center;">{{this}}</h3>
-    {{/with}}
+      {{#with college}}
+        <h3 style="text-align:center;">CMC</h3>
+      {{/with}}
 
       {{#ionList}}
-
-        {{#each database}}
-          {{> _menuItem database=this}}
+        {{#each todaysMenu}}
+          {{> _menuItem menuItem=this}}
         {{/each}}
-
       {{/ionList}}
 
     {{/ionContent}}

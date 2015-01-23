@@ -1,7 +1,7 @@
 <template name="cmc">
-  {{#each college}}
-    {{> home college=this}}
-  {{/each}}
+  {{#with todaysMenu}}
+    {{> home todaysMenu=todaysMenu}}
+  {{/with}}
 </template>
 
 <template name="mudd">
