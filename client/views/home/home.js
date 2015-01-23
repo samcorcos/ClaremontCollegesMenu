@@ -19,15 +19,17 @@ Template._home.helpers({
   }
 });
 
+currentDay = moment().format("MMMM D YYYY");
+
 Template.cmc.helpers({
   breakfast: function() {
-    return MenuItems.find({college: "CMC", meal: "Breakfast"})
+    return MenuItems.find({college: "CMC", meal: "Breakfast", date: currentDay})
   },
   lunch: function() {
-    return MenuItems.find({college: "CMC", meal: "Lunch"})
+    return MenuItems.find({college: "CMC", meal: "Lunch", date: currentDay})
   },
   dinner: function() {
-    return MenuItems.find({college: "CMC", meal: "Dinner"})
+    return MenuItems.find({college: "CMC", meal: "Dinner", date: currentDay})
   },
   college: function() {
     return ["CMC"];
@@ -36,13 +38,13 @@ Template.cmc.helpers({
 
 Template.mudd.helpers({
   breakfast: function() {
-    return MenuItems.find({college: "Mudd", meal: "Breakfast"})
+    return MenuItems.find({college: "Mudd", meal: "Breakfast", date: currentDay})
   },
   lunch: function() {
-    return MenuItems.find({college: "Mudd", meal: "Lunch"})
+    return MenuItems.find({college: "Mudd", meal: "Lunch", date: currentDay})
   },
   dinner: function() {
-    return MenuItems.find({college: "Mudd", meal: "Dinner"})
+    return MenuItems.find({college: "Mudd", meal: "Dinner", date: currentDay})
   },
   college: function() {
     return ["Mudd"];
@@ -51,13 +53,13 @@ Template.mudd.helpers({
 
 Template.scripps.helpers({
   breakfast: function() {
-    return MenuItems.find({college: "Scripps", meal: "Breakfast"})
+    return MenuItems.find({college: "Scripps", meal: "Breakfast", date: currentDay})
   },
   lunch: function() {
-    return MenuItems.find({college: "Scripps", meal: "Lunch"})
+    return MenuItems.find({college: "Scripps", meal: "Lunch", date: currentDay})
   },
   dinner: function() {
-    return MenuItems.find({college: "Scripps", meal: "Dinner"})
+    return MenuItems.find({college: "Scripps", meal: "Dinner", date: currentDay})
   },
   college: function() {
     return ["Scripps"];
@@ -66,13 +68,13 @@ Template.scripps.helpers({
 
 Template.pitzer.helpers({
   breakfast: function() {
-    return MenuItems.find({college: "Pitzer", meal: "Breakfast"})
+    return MenuItems.find({college: "Pitzer", meal: "Breakfast", date: currentDay})
   },
   lunch: function() {
-    return MenuItems.find({college: "Pitzer", meal: "Lunch"})
+    return MenuItems.find({college: "Pitzer", meal: "Lunch", date: currentDay})
   },
   dinner: function() {
-    return MenuItems.find({college: "Pitzer", meal: "Dinner"})
+    return MenuItems.find({college: "Pitzer", meal: "Dinner", date: currentDay})
   },
   college: function() {
     return ["Pitzer"];
@@ -81,13 +83,13 @@ Template.pitzer.helpers({
 
 Template.frary.helpers({
   breakfast: function() {
-    return MenuItems.find({college: "Frary", meal: "Breakfast"})
+    return MenuItems.find({college: "Frary", meal: "Breakfast", date: currentDay})
   },
   lunch: function() {
-    return MenuItems.find({college: "Frary", meal: "Lunch"})
+    return MenuItems.find({college: "Frary", meal: "Lunch", date: currentDay})
   },
   dinner: function() {
-    return MenuItems.find({college: "Frary", meal: "Dinner"})
+    return MenuItems.find({college: "Frary", meal: "Dinner", date: currentDay})
   },
   college: function() {
     return ["Frary"];
@@ -96,13 +98,13 @@ Template.frary.helpers({
 
 Template.frank.helpers({
   breakfast: function() {
-    return MenuItems.find({college: "Frank", meal: "Breakfast"})
+    return MenuItems.find({college: "Frank", meal: "Breakfast", date: currentDay})
   },
   lunch: function() {
-    return MenuItems.find({college: "Frank", meal: "Lunch"})
+    return MenuItems.find({college: "Frank", meal: "Lunch", date: currentDay})
   },
   dinner: function() {
-    return MenuItems.find({college: "Frank", meal: "Dinner"})
+    return MenuItems.find({college: "Frank", meal: "Dinner", date: currentDay})
   },
   college: function() {
     return ["Frank"];
@@ -111,13 +113,13 @@ Template.frank.helpers({
 
 Template.oldenborg.helpers({
   breakfast: function() {
-    return MenuItems.find({college: "Oldenborg", meal: "Breakfast"})
+    return MenuItems.find({college: "Oldenborg", meal: "Breakfast", date: currentDay})
   },
   lunch: function() {
-    return MenuItems.find({college: "Oldenborg", meal: "Lunch"})
+    return MenuItems.find({college: "Oldenborg", meal: "Lunch", date: currentDay})
   },
   dinner: function() {
-    return MenuItems.find({college: "Oldenborg", meal: "Dinner"})
+    return MenuItems.find({college: "Oldenborg", meal: "Dinner", date: currentDay})
   },
   college: function() {
     return ["Oldenborg"];

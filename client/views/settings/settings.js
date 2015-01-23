@@ -19,5 +19,9 @@ Template.settings.events({
   },
   'click #login-create-button': function(e,t) {
     IonModal.open("signInModal");
+  },
+  'change #new-default-college': function(e,t) {
+    var newValue = t.find("#new-default-college").value;
+    Meteor.call('changeDefault', newValue)
   }
 })
