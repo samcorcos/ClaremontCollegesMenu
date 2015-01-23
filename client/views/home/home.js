@@ -17,14 +17,6 @@ Template.home.helpers({
   }
 });
 
-Template._menuItem.events({
-  // 'click button': function(e,t) {
-  //   if (!Meteor.loggingIn() && !Meteor.user()) {
-  //     IonModal.open('signInModal');
-  //   }
-  // }
-})
-
 Template.cmc.helpers({
   todaysMenu: function() {
     return TodaysMenu.find({college: "CMC"}); // this will eventually contain a selector for only this colleges menu
