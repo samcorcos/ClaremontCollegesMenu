@@ -16,7 +16,7 @@ Meteor.methods({
 		// // These values are hard-coded
 		// var meals = ["Breakfast", "Lunch", "Dinner"];
 		// These will be the IDs we will iterate over to get the menu items.
-		var diningHalls = ["#frank_menu"]//,"#frary_menu", "#oldenborg_menu", "#cmc_menu", "#scripps_menu", "#pitzer_menu", "#mudd_menu"];
+		var diningHalls = ["#frank_menu","#frary_menu", "#oldenborg_menu", "#cmc_menu", "#scripps_menu", "#pitzer_menu", "#mudd_menu"];
 		var menus = [];
 
 		diningHalls.forEach(function(hall){
@@ -52,6 +52,7 @@ Meteor.methods({
 		
 		fillTodaysMenu(menus);
 		return 'BOOYA';
+		
 	},
 });
 
@@ -70,7 +71,7 @@ var populateCollections = function(arrayOfMenuObjects){
 					if(err){console.log(err)}
 				})
 			}
-		})
+		});
 		menuObject.lunch.forEach(function(item){
 			var found = MenuItems.findOne({itemName:item,college:menuObject.hall,meal:'Lunch'})
 			if(!found){
@@ -83,7 +84,7 @@ var populateCollections = function(arrayOfMenuObjects){
 						
 				})
 			}
-		})
+		});
 		menuObject.dinner.forEach(function(item){
 			var found = MenuItems.findOne({itemName:item,college:menuObject.hall,meal:'Dinner'})
 			if(!found){
@@ -96,19 +97,30 @@ var populateCollections = function(arrayOfMenuObjects){
 						
 				})
 			}
-		})
+		});
 	})
 };
 
 var fillTodaysMenu = function(arrayOfMenuObjects){
+	TodaysMenu.remove({});
 	var menus = arrayOfMenuObjects;
-	var todaysMenu = [];
+	var todaysMenu = {fullMenu:[]};
 	menus.forEach(function(menuObject){
 		menuObject.breakfast.forEach(function(item){
 			var fetched = MenuItems.findOne({itemName:item,college:menuObject.hall,meal:'Breakfast'});
-			todaysMenu.push(fetched);
-		})
+			todaysMenu.fullMenu.push(fetched);
+		});
+		menuObject.lunch.forEach(function(item){
+			var fetched = MenuItems.findOne({itemName:item,college:menuObject.hall,meal:'Lunch'});
+			todaysMenu.fullMenu.push(fetched);
+		});
+		menuObject.dinner.forEach(function(item){
+			var fetched = MenuItems.findOne({itemName:item,college:menuObject.hall,meal:'Dinner'});
+			todaysMenu.fullMenu.push(fetched);
+		});
 	})
-	console.log(todaysMenu)
+	TodaysMenu.insert(todaysMenu,function(err,res){
+		err ? console.log(err) : console.log('RES ',res);
+	});	//This should be feeding into todays menu according to docs, but errors
 
-}
+};
