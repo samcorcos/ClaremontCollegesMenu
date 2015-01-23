@@ -35,8 +35,9 @@
       {{/ionList}}
 
       <h3 style="text-align:center;padding:1rem;">Set Default College</h3>
-
-      {{> _defaultCollege}}
+      {{#if currentUser}}
+        {{> _defaultCollege}}
+      {{/if}}
 
       <div style="height:3rem;"></div>
 

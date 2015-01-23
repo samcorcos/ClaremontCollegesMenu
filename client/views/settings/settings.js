@@ -28,24 +28,24 @@ Template.settings.events({
 
 Template._defaultCollege.helpers({
   selectCMC: function() {
-    Session.get("favorite") == "cmc" ? true : false;
+    return Meteor.user().profile.favorite == "cmc" ? true : false;
   },
   selectMudd: function() {
-    Session.get("favorite") == "mudd" ? true : false;
+    return Meteor.user().profile.favorite == "mudd" ? true : false;
   },
   selectScripps: function() {
-    Session.get("favorite") == "scripps" ? true : false;
+    return Meteor.user().profile.favorite == "scripps" ? true : false;
   },
   selectFrank: function() {
-    Session.get("favorite") == "frank" ? true : false;
+    return Meteor.user().profile.favorite == "frank" ? true : false;
   },
   selectPitzer: function() {
-    Session.get("favorite") == "pitzer" ? true : false;
+    return Meteor.user().profile.favorite == "pitzer" ? true : false;
   },
   selectFrary: function() {
-    Session.get("favorite") == "frary" ? true : false;
+    return Meteor.user().profile.favorite == "frary" ? true : false;
   },
   selectOldenborg: function() {
-    Session.get("favorite") == "oldenborg" ? true : false;
+    return Meteor.user().profile.favorite == "oldenborg" ? true : false;
   }
 })

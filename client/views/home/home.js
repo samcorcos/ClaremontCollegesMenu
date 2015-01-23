@@ -125,3 +125,7 @@ Template.oldenborg.helpers({
     return ["Oldenborg"];
   }
 });
+
+Template.landing.rendered = function() {
+  IonModal.open("signInModal")
+}
