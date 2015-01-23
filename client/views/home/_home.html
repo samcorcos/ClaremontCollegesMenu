@@ -31,17 +31,17 @@
       {{#ionList}}
 
         <h3 style="text-align:center;padding:1rem;">Breakfast</h3>
-        {{#each sorted breakfast}}
+        {{#each breakfast}}
           {{> _menuItem menuItem=this}}
         {{/each}}
 
         <h3 style="text-align:center;padding:1rem;">Lunch</h3>
-        {{#each sorted lunch}}
+        {{#each lunch}}
           {{> _menuItem menuItem=this}}
         {{/each}}
 
         <h3 style="text-align:center;padding:1rem;">Dinner</h3>
-        {{#each sorted dinner}}
+        {{#each dinner}}
           {{> _menuItem menuItem=this}}
         {{/each}}
       {{/ionList}}
