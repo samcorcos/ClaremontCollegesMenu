@@ -26,7 +26,7 @@ Meteor.methods({
 			var newMenu=[];
 			thisMenu.forEach(function(item,index){
 				var fixedItem = item.replace(/\t+/,'');
-				var fixedItem = fixedItem.replace(' ','');
+				var fixedItem = fixedItem.trim();
 				if(fixedItem!==''){
 					newMenu.push(fixedItem)
 				}
