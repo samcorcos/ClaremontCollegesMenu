@@ -19,7 +19,8 @@ Template.home.helpers({
 
 Template.cmc.helpers({
   todaysMenu: function() {
-    return TodaysMenu.find({college: "CMC"}); // this will eventually contain a selector for only this colleges menu
+    return MenuItems.find({college: "CMC"})
+    // return TodaysMenu.find({college: "CMC"}); // this will eventually contain a selector for only this colleges menu
   },
   college: function() {
     return ["CMC"];
