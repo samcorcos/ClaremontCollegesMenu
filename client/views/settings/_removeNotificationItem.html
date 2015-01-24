@@ -1,12 +1,18 @@
 <template name="_removeNotificationItem">
-  {{#each myStarred}}
-    <div class="item item-button-right item-text-wrap">
-      <span class="remove-notification-item">
-        {{college}}: {{itemName}}
-      </span>
-      <button class=" button button-clear button-assertive">
-        {{> ionIcon icon="close"}}
-      </button>
+  {{#if myStarred}}
+    {{#each myStarred}}
+      <div class="item item-button-right item-text-wrap">
+        <span class="remove-notification-item">
+          {{college}}: {{itemName}}
+        </span>
+        <button class=" button button-clear button-assertive">
+          {{> ionIcon icon="close"}}
+        </button>
+      </div>
+    {{/each}}
+  {{else}}
+    <div class="item">
+      <span>No items have been starred!</span>
     </div>
-  {{/each}}
+  {{/if}}
 </template>
