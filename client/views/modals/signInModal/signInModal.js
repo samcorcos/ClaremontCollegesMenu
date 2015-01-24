@@ -12,21 +12,33 @@ Template.signInModal.events({
   'click #create-account-button': function(e,t) {
     // Needs to validate that the user has the proper email suffix
     if (Session.get("creatingAccount")) {
-      Accounts.createUser({
-        email: t.find("#email").value,
-        password: t.find("#password").value,
-        profile: {
-          favorite: t.find("#favorite").value,
-          phone: t.find("#phone").value
+      var temp = t.find("#phone").value.split(""); // this is the phone number string; I want to pull out all the numbers and make sure it's exactly 10 digits for validation
+      var phoneNumber = [];
+      temp.forEach(function(digit) {
+        if (/\d/.test(digit)) {
+          phoneNumber.push(digit);
         }
-      }, function(err) {
-        if (err) {
-          $('#password').val("");
-          alert(err.message)
-        } else {
-          IonModal.close();
-        };
       })
+      if (phoneNumber.length === 10) { // phone number validation
+        Accounts.createUser({
+          email: t.find("#email").value,
+          password: t.find("#password").value,
+          profile: {
+            favorite: t.find("#favorite").value,
+            phone: t.find("#phone").value
+          }
+        }, function(err) {
+          if (err) {
+            $('#password').val("");
+            alert(err.message)
+          } else {
+            IonModal.close();
+          };
+        })
+      } else {
+        $("#phone").val("");
+        alert("Please enter a valid phone number")
+      }
     } else {
       Session.set("creatingAccount", true);
     }

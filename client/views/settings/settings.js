@@ -2,7 +2,6 @@ Template.settings.rendered = function() {
   if (!Meteor.loggingIn() && !Meteor.user()) {
     IonModal.open('signInModal');
   }
-  console.log(Session.get("favorites"));
 }
 
 Template.settings.helpers({
