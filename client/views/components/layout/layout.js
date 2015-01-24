@@ -31,5 +31,7 @@ Template.layout.events({
       Router.go("/"+newRoute)
     }
   },
-
+  'click .ion-ios-book': function(e,t) {
+    IonModal.open("collegeSelectModal")
+  }
 })

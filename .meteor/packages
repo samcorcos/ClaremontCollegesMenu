@@ -19,10 +19,8 @@ aldeed:collection2
 meteoric:ionic
 meteoric:ionicons-sass
 meteoric:ionic-sass
-autopublish
 meteoric:autoform-ionic
 aldeed:autoform
 peerlibrary:async
 momentjs:moment
 meteorhacks:kadira
-ccorcos:swipe

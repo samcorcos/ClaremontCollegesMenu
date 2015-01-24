@@ -38,7 +38,14 @@ Template.cmc.helpers({
     return ["CMC"];
   },
   score: function() {
-    return MenuItems.find({college: "CMC"}, {upvotes: 1});
+    var currentItems = MenuItems.find({college: "CMC"}).fetch();
+    var voteCount = 0;
+    currentItems.forEach(function(item){
+      if (item.hasOwnProperty("upvotes")) {
+        voteCount += item.upvotes.length;
+      }
+    })
+    return voteCount;
   }
 });
 
@@ -56,7 +63,14 @@ Template.mudd.helpers({
     return ["Mudd"];
   },
   score: function() {
-    return MenuItems.find({college: "Mudd"}, {upvotes: 1});
+    var currentItems = MenuItems.find({college: "Mudd"}).fetch();
+    var voteCount = 0;
+    currentItems.forEach(function(item){
+      if (item.hasOwnProperty("upvotes")) {
+        voteCount += item.upvotes.length;
+      }
+    })
+    return voteCount;
   }
 });
 
@@ -74,7 +88,14 @@ Template.scripps.helpers({
     return ["Scripps"];
   },
   score: function() {
-    return MenuItems.find({college: "Scripps"}, {upvotes: 1});
+    var currentItems = MenuItems.find({college: "Scripps"}).fetch();
+    var voteCount = 0;
+    currentItems.forEach(function(item){
+      if (item.hasOwnProperty("upvotes")) {
+        voteCount += item.upvotes.length;
+      }
+    })
+    return voteCount;
   }
 });
 
@@ -92,7 +113,14 @@ Template.pitzer.helpers({
     return ["Pitzer"];
   },
   score: function() {
-    return MenuItems.find({college: "Pitzer"}, {upvotes: 1});
+    var currentItems = MenuItems.find({college: "Pitzer"}).fetch();
+    var voteCount = 0;
+    currentItems.forEach(function(item){
+      if (item.hasOwnProperty("upvotes")) {
+        voteCount += item.upvotes.length;
+      }
+    })
+    return voteCount;
   }
 });
 
@@ -110,7 +138,14 @@ Template.frary.helpers({
     return ["Frary"];
   },
   score: function() {
-    return MenuItems.find({college: "Frary"}, {upvotes: 1});
+    var currentItems = MenuItems.find({college: "Frary"}).fetch();
+    var voteCount = 0;
+    currentItems.forEach(function(item){
+      if (item.hasOwnProperty("upvotes")) {
+        voteCount += item.upvotes.length;
+      }
+    })
+    return voteCount;
   }
 });
 
@@ -128,7 +163,14 @@ Template.frank.helpers({
     return ["Frank"];
   },
   score: function() {
-    return MenuItems.find({college: "Frank"}, {upvotes: 1});
+    var currentItems = MenuItems.find({college: "Frank"}).fetch();
+    var voteCount = 0;
+    currentItems.forEach(function(item){
+      if (item.hasOwnProperty("upvotes")) {
+        voteCount += item.upvotes.length;
+      }
+    })
+    return voteCount;
   }
 });
 
