@@ -55,3 +55,16 @@ Template._defaultCollege.helpers({
     return Meteor.user().profile.favorite == "oldenborg" ? true : false;
   }
 })
+
+Template._removeNotificationItem.helpers({
+  myStarred: function() {
+    var userStarredArray = Meteor.user().profile.starred;
+    var userStarredObjects = [];
+    userStarredArray.forEach(function(starredItemId) {
+      var itemObj = MenuItems.findOne({ _id: starredItemId});
+      userStarredObjects.push(itemObj);
+    })
+    return userStarredObjects;
+  }
+  // then I need a method to remove from user starred
+})

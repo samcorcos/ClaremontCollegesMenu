@@ -1,12 +1,12 @@
 <template name="_removeNotificationItem">
-  {{#with removeNote}}
+  {{#each myStarred}}
     <div class="item item-button-right">
       <span class="remove-notification-item">
-        {{this}}
+        {{itemName}}
       </span>
-      <button class="button">
+      <button class=" button button-clear button-assertive">
         {{> ionIcon icon="close"}}
       </button>
     </div>
-  {{/with}}
+  {{/each}}
 </template>
