@@ -11,6 +11,7 @@ startTimer = function() {
 	// Starts the initial timer so that the ongoing timer will run every 24 hours at 6AM PST
 	Meteor.setTimeout(function() {
 		ongoingTimer();
+		Meteor.call("getMenus");
 	}, msUntil6AMPST)
 }
 
