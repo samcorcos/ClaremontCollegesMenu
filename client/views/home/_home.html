@@ -1,4 +1,5 @@
 <template name="_home">
+
 <!-- {{#with college}}
   {{#contentFor "headerTitle"}}
     <h1 class="title">test{{this}}{{college}}</h1>
@@ -24,18 +25,16 @@
   {{#ionView}}
     {{#ionContent}}
 
-
       {{#ionList}}
 
 
-
-        {{#each college}}
-          <div class="item">
-            <div class="bar bar-header bar-assertive">
-              <h1 style="transform:translateY(-7px)" class="title" id="college-name">{{this}}</h1>
+            <div class="item">
+              <div class="bar bar-header bar-assertive">
+                <h1 style="transform:translateY(-7px)" class="title" id="college-name">{{college}}</h1>
+                <span style="transform:translateY(-11px)" class="badge badge-stable">{{score}}</span>
+              </div>
             </div>
-          </div>
-        {{/each}}
+
 
         {{#ionItem}}
           <div class="bar bar-header bar-dark">
