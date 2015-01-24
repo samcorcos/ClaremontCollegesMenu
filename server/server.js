@@ -105,6 +105,7 @@ Meteor.methods({
 
 		Meteor.setTimeout(function() { // Populates the user recommendations for the day
 			getRecommendations();
+			getNotifications();
 		}, 30000)												// As much as I trust fibers, I dont want to risk it
 
 		// sendNotifications()			// Sends user notifications out for the day
