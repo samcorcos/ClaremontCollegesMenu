@@ -31,13 +31,48 @@ getRecommendations = function() {
       }
     })
 
-    var breakfast = _.invert(temp.breakfast)[_.max(temp.breakfast)]
-    var lunch = _.invert(temp.lunch)[_.max(temp.lunch)]
-    var dinner = _.invert(temp.dinner)[_.max(temp.dinner)]
+    ////////////////// This is all for error handling ///////////////////
+    var altBreakfast = 0;
+    var altLunch = 0;
+    var altDinner = 0;
+
+    for (var key in temp.breakfast) {
+      if (temp.breakfast[key] > 0) {
+        altBreakfast += 1;
+      }
+    }
+    for (var key in temp.lunch) {
+      if (temp.lunch[key] > 0) {
+        altLunch += 1;
+      }
+    }
+    for (var key in temp.dinner) {
+      if (temp.dinner[key] > 0) {
+        altDinner += 1;
+      }
+    }
+
+    if (altBreakfast > 0) {
+      var breakfast = _.invert(temp.breakfast)[_.max(temp.breakfast)]
+    } else {
+      var breakfast = "Insufficient Data"
+    }
+    if (altLunch > 0) {
+      var lunch = _.invert(temp.lunch)[_.max(temp.lunch)]
+    } else {
+      var lunch = "Insufficient Data"
+    }
+    if (altDinner > 0) {
+      var dinner = _.invert(temp.dinner)[_.max(temp.dinner)]
+    } else {
+      var dinner = "Insufficient Data"
+    }
+    ////////////////// This is all for error handling ///////////////////
+    
 
     var recommended = { breakfast: breakfast, lunch: lunch, dinner: dinner};
-    console.log(user._id);
-    console.log(recommended);
+    // console.log(user._id);
+    // console.log(recommended);
 
     Meteor.users.update({ _id: user._id},{$set: {"profile.recommended": recommended }})
 
