@@ -1,5 +1,11 @@
 Template.notifications.helpers({
   notifications: function() {
-    return;// ["Notification 1", "Notification 2", "Notification 3"];
+    return Meteor.user().profile.notifications;
+  }
+})
+
+Template._notificationItem.events({
+  'click .ion-close': function(e,t) {
+    Meteor.call('removeNotification', this, Meteor.user()._id)
   }
 })

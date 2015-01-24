@@ -20,6 +20,9 @@ Meteor.methods({
   // },
   changeText: function(newDefault) {
     Meteor.users.update({ _id: Meteor.user()._id }, { $set: {"profile.text": newDefault}})
+  },
+  removeNotification: function(item, userId) {
+    Meteor.users.update({ _id: userId }, { $pull: { "profile.notifications": { _id: item._id } } })
   }
 
 })

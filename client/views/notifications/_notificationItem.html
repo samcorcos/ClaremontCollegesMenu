@@ -1,7 +1,10 @@
 <template name="_notificationItem">
   {{#with notification}}
-    {{#ionItem}}
-    <h1>{{this}}</h1>
-    {{/ionItem}}
+
+    <div class="item item-text-wrap item-icon-right"> <!-- Might want to add icon right class for dismissing notifications -->
+      <span class="menu-item">{{college}} has {{itemName}} for {{meal}} today!</span>
+      <i class="icon ion-close"></i>
+    </div>
+
   {{/with}}
 </template>

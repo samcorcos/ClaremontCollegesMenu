@@ -6,18 +6,32 @@
   {{#ionView}}
     {{#ionContent}}
 
+    {{#if currentUser}}
       {{#if notifications}}
-        {{#ionList}}
-          {{#each notifications}}
-            {{> _notificationItem notification=this}}
-          {{/each}}
-        {{/ionList}}
+
+          {{#ionList}}
+            {{#each notifications}}
+              {{> _notificationItem notification=this}}
+            {{/each}}
+          {{/ionList}}
+
       {{else}}
+
         <div class="empty-view">
           {{> ionIcon icon="ios-bell"}}
           No notifications yet!
         </div>
+
       {{/if}}
+
+      {{else}}
+
+      <div class="empty-view">
+        {{> ionIcon icon="ios-bell"}}
+        No notifications yet!
+      </div>
+      
+    {{/if}}
 
     {{/ionContent}}
   {{/ionView}}

@@ -12,7 +12,7 @@ getNotifications = function() {
         if (starId == item._id) notifications.push(item) // if the item matches the id from the starred array, push the item to the notifications array
       })
     })
-
+    
     Meteor.users.update({ _id: user._id }, { $set: { "profile.notifications": notifications }})
   })
 
