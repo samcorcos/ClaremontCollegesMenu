@@ -101,11 +101,10 @@ Meteor.methods({
 			});
 		});
 
-		populateCollections(menus);
-		//take the same items from today and find them
-		//the ones that are found are on todays menu
+		populateCollections(menus); // Populates the Menus
+		getRecommendations(); 			// Populates the user recommendations for the day
+		// sendNotifications()			// Sends user notifications out for the day
 
-		//fillTodaysMenu(menus);
 		return 'BOOYA';
 
 	},
@@ -140,23 +139,4 @@ var populateCollections = function(arrayOfMenuObjects){
 			);
 		});
 	});
-};
-
-var fillTodaysMenu = function(arrayOfMenuObjects){
-	TodaysMenu.remove({});
-	var menus = arrayOfMenuObjects;
-	menus.forEach(function(menuObject){
-		menuObject.breakfast.forEach(function(item){
-			var fetched = MenuItems.findOne({itemName:item,college:menuObject.hall,meal:'Breakfast'});
-			TodaysMenu.insert(fetched)
-		});
-		menuObject.lunch.forEach(function(item){
-			var fetched = MenuItems.findOne({itemName:item,college:menuObject.hall,meal:'Lunch'});
-			TodaysMenu.insert(fetched)
-		});
-		menuObject.dinner.forEach(function(item){
-			var fetched = MenuItems.findOne({itemName:item,college:menuObject.hall,meal:'Dinner'});
-			TodaysMenu.insert(fetched)
-		});
-	})
 };

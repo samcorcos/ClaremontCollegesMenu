@@ -68,18 +68,10 @@ getRecommendations = function() {
       var dinner = "Insufficient Data"
     }
     ////////////////// This is all for error handling ///////////////////
-    
 
     var recommended = { breakfast: breakfast, lunch: lunch, dinner: dinner};
-    // console.log(user._id);
-    // console.log(recommended);
 
     Meteor.users.update({ _id: user._id},{$set: {"profile.recommended": recommended }})
-
-    // Here is where I want to update the user profile to contain the information.
-
-
-
 
   })
 }
