@@ -1,8 +1,11 @@
+
 Template._home.rendered = function() {
   // Meteor.call("getMenus", function(err, res) {
   //   if (err) console.log("ERR", err);
   //   console.log(res);
   // })
+
+
 };
 
 Template._home.helpers({
@@ -33,6 +36,16 @@ Template.cmc.helpers({
   },
   college: function() {
     return ["CMC"];
+  },
+  score: function() {
+    var currentItems = MenuItems.find({college: "CMC"}).fetch();
+    var voteCount = 0;
+    currentItems.forEach(function(item){
+      if (item.hasOwnProperty("upvotes")) {
+        voteCount += item.upvotes.length;
+      }
+    })
+    return voteCount;
   }
 });
 
@@ -48,6 +61,16 @@ Template.mudd.helpers({
   },
   college: function() {
     return ["Mudd"];
+  },
+  score: function() {
+    var currentItems = MenuItems.find({college: "Mudd"}).fetch();
+    var voteCount = 0;
+    currentItems.forEach(function(item){
+      if (item.hasOwnProperty("upvotes")) {
+        voteCount += item.upvotes.length;
+      }
+    })
+    return voteCount;
   }
 });
 
@@ -63,6 +86,16 @@ Template.scripps.helpers({
   },
   college: function() {
     return ["Scripps"];
+  },
+  score: function() {
+    var currentItems = MenuItems.find({college: "Scripps"}).fetch();
+    var voteCount = 0;
+    currentItems.forEach(function(item){
+      if (item.hasOwnProperty("upvotes")) {
+        voteCount += item.upvotes.length;
+      }
+    })
+    return voteCount;
   }
 });
 
@@ -78,6 +111,16 @@ Template.pitzer.helpers({
   },
   college: function() {
     return ["Pitzer"];
+  },
+  score: function() {
+    var currentItems = MenuItems.find({college: "Pitzer"}).fetch();
+    var voteCount = 0;
+    currentItems.forEach(function(item){
+      if (item.hasOwnProperty("upvotes")) {
+        voteCount += item.upvotes.length;
+      }
+    })
+    return voteCount;
   }
 });
 
@@ -93,6 +136,16 @@ Template.frary.helpers({
   },
   college: function() {
     return ["Frary"];
+  },
+  score: function() {
+    var currentItems = MenuItems.find({college: "Frary"}).fetch();
+    var voteCount = 0;
+    currentItems.forEach(function(item){
+      if (item.hasOwnProperty("upvotes")) {
+        voteCount += item.upvotes.length;
+      }
+    })
+    return voteCount;
   }
 });
 
@@ -108,6 +161,16 @@ Template.frank.helpers({
   },
   college: function() {
     return ["Frank"];
+  },
+  score: function() {
+    var currentItems = MenuItems.find({college: "Frank"}).fetch();
+    var voteCount = 0;
+    currentItems.forEach(function(item){
+      if (item.hasOwnProperty("upvotes")) {
+        voteCount += item.upvotes.length;
+      }
+    })
+    return voteCount;
   }
 });
 
@@ -123,6 +186,16 @@ Template.oldenborg.helpers({
   },
   college: function() {
     return ["Oldenborg"];
+  },
+  score: function() {
+    var currentItems = MenuItems.find({college: "Oldenborg"}).fetch();
+    var voteCount = 0;
+    currentItems.forEach(function(item){
+      if (item.hasOwnProperty("upvotes")) {
+        voteCount += item.upvotes.length;
+      }
+    })
+    return voteCount;
   }
 });
 
