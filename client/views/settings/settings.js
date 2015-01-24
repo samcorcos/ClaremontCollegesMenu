@@ -5,9 +5,6 @@ Template.settings.rendered = function() {
 }
 
 Template.settings.helpers({
-  notifications: function() {
-    return ["Item 1", "Item 2", "Item 3", "Item 4"]
-  },
   userEmail: function() {
     return Meteor.user().emails[0].address;
   },
@@ -67,4 +64,10 @@ Template._removeNotificationItem.helpers({
     return userStarredObjects;
   }
   // then I need a method to remove from user starred
+})
+
+Template._removeNotificationItem.events({
+  'click .button': function(e,t) {
+    Meteor.call("removeStarred", this, Meteor.user()._id)
+  }
 })
