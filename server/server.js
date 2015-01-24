@@ -1,5 +1,14 @@
 // The best way to do it is 1) update menus, 2) calculate notifications for the day, 3) Calculate recommendations for the day
 
+// var now = new Date();
+// var millisTill10 = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 10, 0, 0, 0) - now;
+// if (millisTill10 < 0) {
+// 	millisTill10 += 86400000; // it's after 10am, try 10am tomorrow.
+// }
+// setTimeout(function(){alert("It's 10am!")}, millisTill10);
+
+
+
 Meteor.methods({
 	getMenus: function(){
 		var results = Meteor.http.get("https://aspc.pomona.edu/menu/", {timeout: 30000});
