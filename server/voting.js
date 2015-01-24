@@ -4,5 +4,6 @@ Meteor.methods({
       if (err) console.log(err);
       console.log(res);
     });
+    getRecommendations(); // This needs to be commented out when it goes into production... for demo purposes only
   }
 })
