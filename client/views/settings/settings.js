@@ -22,6 +22,10 @@ Template.settings.events({
   },
   'change #new-default-college': function(e,t) {
     Meteor.call('changeDefault', t.find("#new-default-college").value)
+  },
+  'change #text-notifications': function(e,t) {
+    var checkedStatus = t.find('#text-notifications').checked;
+    Meteor.call('changeText', checkedStatus);
   }
 })
 

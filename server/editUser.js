@@ -14,6 +14,12 @@ Meteor.methods({
 
   changeDefault: function(newDefault) {
     Meteor.users.update({ _id: Meteor.user()._id},{$set: {"profile.favorite": newDefault }})
+  },
+  // changePush: function(newDefault) {
+  //   // this is where we change user profle
+  // },
+  changeText: function(newDefault) {
+    Meteor.users.update({ _id: Meteor.user()._id }, { $set: {"profile.text": newDefault}})
   }
 
 })

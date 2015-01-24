@@ -3,5 +3,6 @@ Meteor.startup(function () {
     Meteor.call("getMenus");
   }
   startTimer();
+  // sendSMS(); // for testing
   // getRecommendations(); // keep here for dev purposes
 });
