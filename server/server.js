@@ -1,3 +1,5 @@
+// The best way to do it is 1) update menus, 2) calculate notifications for the day, 3) Calculate recommendations for the day
+
 Meteor.methods({
 	getMenus: function(){
 		var results = Meteor.http.get("https://aspc.pomona.edu/menu/", {timeout: 30000});
@@ -49,10 +51,10 @@ Meteor.methods({
 		populateCollections(menus);
 		//take the same items from today and find them
 		//the ones that are found are on todays menu
-		
+
 		fillTodaysMenu(menus);
 		return 'BOOYA';
-		
+
 	},
 });
 
@@ -62,7 +64,7 @@ var populateCollections = function(arrayOfMenuObjects){
 	menus.forEach(function(menuObject){
 		menuObject.breakfast.forEach(function(item){
 			MenuItems.upsert({itemName:item,college:menuObject.hall,meal:'Breakfast'},
-				{	
+				{
 					$addToSet: {dateHistory: today},
 					$set:{date:today}
 				}
@@ -70,7 +72,7 @@ var populateCollections = function(arrayOfMenuObjects){
 		});
 		menuObject.lunch.forEach(function(item){
 			MenuItems.upsert({itemName:item,college:menuObject.hall,meal:'Lunch'},
-				{	
+				{
 					$addToSet: {dateHistory: today},
 					$set:{date:today}
 				}
@@ -78,7 +80,7 @@ var populateCollections = function(arrayOfMenuObjects){
 		});
 		menuObject.dinner.forEach(function(item){
 			MenuItems.upsert({itemName:item,college:menuObject.hall,meal:'Dinner'},
-				{	
+				{
 					$addToSet: {dateHistory: today},
 					$set:{date:today}
 				}

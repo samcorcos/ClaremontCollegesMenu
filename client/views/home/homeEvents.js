@@ -10,9 +10,12 @@ Template._home.events({
 
 Template._menuItem.events({
   'click .starred': function(e,t) {
-    t.$(".starred").toggleClass("ion-ios-star-outline");
-    t.$(".starred").toggleClass("ion-ios-star");
-    Meteor.call("toggleStarred",this._id);
+    if (!Meteor.loggingIn() && !Meteor.user()) {
+      IonModal.open('signInModal');
+    } else {
+      t.$(".starred").toggleClass("ion-ios-star-outline");
+      t.$(".starred").toggleClass("ion-ios-star");
+      Meteor.call("toggleStarred",this._id);
+    }
   }
-
 })
