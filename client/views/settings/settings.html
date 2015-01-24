@@ -26,16 +26,41 @@
 
       {{/if}}
 
-        <h3 style="text-align:center;padding:1rem;">Remove Notification</h3>
-
-      {{#ionList}}
-        {{#each notifications}}
-          {{> _removeNotificationItem removeNote=this}}
-        {{/each}}
-      {{/ionList}}
-
-      <h3 style="text-align:center;padding:1rem;">Set Default College</h3>
       {{#if currentUser}}
+        <ul class="list">
+          <li class="item item-toggle">
+            Push Notifications
+            <label class="toggle toggle-assertive">
+              <input type="checkbox">
+              <div class="track">
+                <div class="handle"></div>
+              </div>
+            </label>
+          </li>
+          <li class="item item-toggle">
+            Text Notifications
+            <label class="toggle toggle-assertive">
+              <input type="checkbox">
+              <div class="track">
+                <div class="handle"></div>
+              </div>
+            </label>
+          </li>
+        </ul>
+      {{/if}}
+
+      {{#if currentUser}}
+        <h3 style="text-align:center;padding:1rem;">Remove Notification</h3>
+        {{#ionList}}
+          {{#each notifications}}
+            {{> _removeNotificationItem removeNote=this}}
+          {{/each}}
+        {{/ionList}}
+      {{/if}}
+
+
+      {{#if currentUser}}
+        <h3 style="text-align:center;padding:1rem;">Set Default College</h3>
         {{> _defaultCollege}}
       {{/if}}
 

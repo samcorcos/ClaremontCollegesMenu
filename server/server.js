@@ -1,16 +1,60 @@
 // The best way to do it is 1) update menus, 2) calculate notifications for the day, 3) Calculate recommendations for the day
 
-// var now = new Date();
-// var millisTill10 = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 10, 0, 0, 0) - now;
-// if (millisTill10 < 0) {
-// 	millisTill10 += 86400000; // it's after 10am, try 10am tomorrow.
-// }
-// setTimeout(function(){alert("It's 10am!")}, millisTill10);
+startTimer = function() {
 
+	// 86400000 = milliseconds in 24 hours
+	// Today at 6am PST: 1422097200000
+
+	var now = new Date().getTime();
+	var msUntil6AMPST = (86400000 - ((now - 1422097200000) % 86400000));
+
+	// Starts the initial timer so that the ongoing timer will run every 24 hours at 6AM PST
+	Meteor.setTimeout(function() {
+		ongoingTimer();
+	}, msUntil6AMPST)
+}
+
+var ongoingTimer = function() {
+	Meteor.setInterval(function() {
+		console.log("Retrieving menus...");
+		Meteor.call("getMenus");
+		// We're going to want to call a number of things in here, including:
+			// 1) Calculate notifications for the day
+			// 2) Calculate recommendations for the day
+	}, 86400000)
+}
+
+////////////////// Show these to Justin for testing ////////////////////
+// startTimer = function() {
+//
+// 	// 86400000 = milliseconds in 24 hours
+// 	// Today at 6am PST: 1422097200000
+//
+// 	var now = new Date().getTime();
+// 	var msUntil6AMPST = (86400000 - ((now - 1422097200000) % 86400000));
+//
+// 	// Starts the initial timer so that the ongoing timer will run every 24 hours at 6AM PST
+// 	Meteor.setTimeout(function() {
+// 		ongoingTimer();
+// 		console.log("Initial timer set");
+// 	}, 5000)
+//
+// }
+//
+// var ongoingTimer = function() {
+// 	console.log("ongoing Timer running and called");
+// 	Meteor.setInterval(function() {
+// 		Meteor.call("getMenus")
+// 	}, 10000)
+// }
+//
+///////////////////// Show these to Justin for testing ///////////////////
 
 
 Meteor.methods({
+	// This doesn't need to be called from the client anymore, explain how this works to Justin
 	getMenus: function(){
+		console.log("RUNNING");
 		var results = Meteor.http.get("https://aspc.pomona.edu/menu/", {timeout: 30000});
 		var html = results.content;
 		$ = cheerio.load(html);
@@ -61,7 +105,7 @@ Meteor.methods({
 		//take the same items from today and find them
 		//the ones that are found are on todays menu
 
-		fillTodaysMenu(menus);
+		//fillTodaysMenu(menus);
 		return 'BOOYA';
 
 	},
