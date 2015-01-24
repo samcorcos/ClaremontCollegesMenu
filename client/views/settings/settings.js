@@ -10,6 +10,9 @@ Template.settings.helpers({
   },
   userEmail: function() {
     return Meteor.user().emails[0].address;
+  },
+  textStatus: function() {
+    return Meteor.user().profile.text;
   }
 })
 
