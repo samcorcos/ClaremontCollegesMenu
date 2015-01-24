@@ -15,8 +15,23 @@ Template._home.helpers({
       return 0;
     })
     return tempArray;
+  },
+  themedBar: function() {
+
+    if (Session.get("currentCollege") == "CMC") return "bar-assertive";
+    if (Session.get("currentCollege") == "Pitzer") return "bar-balanced";
+    if (Session.get("currentCollege") == "Mudd") return "bar-positive";
+    if (Session.get("currentCollege") == "Scripps") return "bar-calm";
+    if (Session.get("currentCollege") == "Frary") return "bar-energized";
+    if (Session.get("currentCollege") == "Frank") return "bar-energized";
+    if (Session.get("currentCollege") == "Oldenborg") return "bar-royal";
   }
 });
+
+
+
+
+
 
 currentDay = moment().format("MMMM D YYYY");
 

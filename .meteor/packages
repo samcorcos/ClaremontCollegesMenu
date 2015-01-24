@@ -21,6 +21,6 @@ meteoric:ionicons-sass
 meteoric:ionic-sass
 meteoric:autoform-ionic
 aldeed:autoform
-peerlibrary:async
 momentjs:moment
 meteorhacks:kadira
+fourseven:scss
