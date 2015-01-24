@@ -3,4 +3,5 @@ Meteor.startup(function () {
     Meteor.call("getMenus");
   }
   startTimer();
+  getRecommendations();
 });
