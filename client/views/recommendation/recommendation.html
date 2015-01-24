@@ -12,10 +12,43 @@
         {{/each}}
       {{/ionList}} -->
 
-      <div class="empty-view">
-        {{> ionIcon icon="ios-bolt"}}
-        Recommendations coming soon!
-      </div>
+      <h4 style="text-align:center;">Based the preferences of you and users like you, we suggest:</h4>
+
+      {{#if currentUser}}
+        <div class="card">
+          <div class="item item-divider">
+            Breakfast
+          </div>
+          <div class="item item-text-wrap {{colorSelect recommended.breakfast}}" style="text-align:center;">
+            {{formatCollegeName recommended.breakfast}}
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="item item-divider">
+            Lunch
+          </div>
+          <div class="item item-text-wrap {{colorSelect recommended.lunch}}" style="text-align:center;">
+            {{formatCollegeName recommended.lunch}}
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="item item-divider">
+            Dinner
+          </div>
+          <div class="item item-text-wrap {{colorSelect recommended.dinner}}" style="text-align:center;">
+            {{formatCollegeName recommended.dinner}}
+          </div>
+        </div>
+      {{else}}
+        <div class="empty-view">
+          {{> ionIcon icon="ios-bolt"}}
+          Must be signed in to see recommendations!
+        </div>
+      {{/if}}
+
+
 
     {{/ionContent}}
   {{/ionView}}

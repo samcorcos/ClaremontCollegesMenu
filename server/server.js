@@ -102,7 +102,11 @@ Meteor.methods({
 		});
 
 		populateCollections(menus); // Populates the Menus
-		getRecommendations(); 			// Populates the user recommendations for the day
+
+		Meteor.setTimeout(function() { // Populates the user recommendations for the day
+			getRecommendations();
+		}, 30000)												// As much as I trust fibers, I dont want to risk it
+
 		// sendNotifications()			// Sends user notifications out for the day
 
 		return 'BOOYA';
