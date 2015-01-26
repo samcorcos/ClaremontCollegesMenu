@@ -4,13 +4,13 @@ Meteor.methods({
     if(thisUser.profile.starred){
       if(thisUser.profile.starred.indexOf(itemId)===-1){
         Meteor.users.update({_id:thisUser._id},{$addToSet: {"profile.starred": itemId}})
-        sendSMS(); // COMMENT THIS OUT IN PRODUCTION -- DEMO ONLY
       } else {
         Meteor.users.update({_id:thisUser._id},{$pull: {"profile.starred": itemId}})
       }
     } else {
     Meteor.users.update({_id:thisUser._id},{$set: {"profile.starred": [itemId]}})
     }
+    getNotifications();
   },
 
   changeDefault: function(newDefault) {
