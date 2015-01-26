@@ -7,7 +7,13 @@ sendSMS = function(arrayOfAllUserNotifications) {
         to: '+1' + userNotificationObj.phone,
         // to:'+19145890035', // Any number Twilio can deliver to
         from: '+14156695849',
-        body: userNotificationObj.college + ' has ' + userNotificationObj.itemName + ' for ' + userNotificationObj.meal + ' tonight!' // body of the SMS message
+        body: userNotificationObj.college
+          + ' has '
+          + userNotificationObj.itemName
+          + ' for '
+          + userNotificationObj.meal
+          + ' tonight!' // body of the SMS message
+
       }, function(err, responseData) { //this function is executed when a response is received from Twilio
         if (err) console.log(err);
         if (!err) {
