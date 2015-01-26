@@ -1,35 +1,10 @@
 // The best way to do it is 1) update menus, 2) calculate notifications for the day, 3) Calculate recommendations for the day
 
-startTimer = function() {
-
-	// 86400000 = milliseconds in 24 hours
-	// Today at 6am PST: 1422097200000
-
-	var now = new Date().getTime();
-	var msUntil6AMPST = (86400000 - ((now - 1422097200000) % 86400000));
-
-	// Starts the initial timer so that the ongoing timer will run every 24 hours at 6AM PST
-	Meteor.setTimeout(function() {
-		ongoingTimer();
-		Meteor.call("getMenus");
-	}, msUntil6AMPST)
-}
-
-var ongoingTimer = function() {
-	Meteor.setInterval(function() {
-		console.log("Retrieving menus...");
-		Meteor.call("getMenus");
-		// We're going to want to call a number of things in here, including:
-			// 1) Calculate notifications for the day
-			// 2) Calculate recommendations for the day
-	}, 86400000)
-}
-
-////////////////// Show these to Justin for testing ////////////////////
 // startTimer = function() {
 //
 // 	// 86400000 = milliseconds in 24 hours
 // 	// Today at 6am PST: 1422097200000
+// 	// 21600000 milliseconds in 6 hours
 //
 // 	var now = new Date().getTime();
 // 	var msUntil6AMPST = (86400000 - ((now - 1422097200000) % 86400000));
@@ -37,19 +12,30 @@ var ongoingTimer = function() {
 // 	// Starts the initial timer so that the ongoing timer will run every 24 hours at 6AM PST
 // 	Meteor.setTimeout(function() {
 // 		ongoingTimer();
-// 		console.log("Initial timer set");
-// 	}, 5000)
-//
+// 		Meteor.call("getMenus");
+// 	}, msUntil6AMPST)
 // }
 //
 // var ongoingTimer = function() {
-// 	console.log("ongoing Timer running and called");
 // 	Meteor.setInterval(function() {
-// 		Meteor.call("getMenus")
-// 	}, 10000)
+// 		console.log("Retrieving menus...");
+// 		Meteor.call("getMenus");
+// 		// We're going to want to call a number of things in here, including:
+// 			// 1) Calculate notifications for the day
+// 			// 2) Calculate recommendations for the day
+// 	}, 86400000)
 // }
-//
-///////////////////// Show these to Justin for testing ///////////////////
+
+checkMenus = function() {
+	var now = new Date().getTime();
+	var msSince6AMPST = ((now - 1422097200000 - 10800000) % 86400000); // now, minus a day at 9am EST, - 3 hours in milliseconds, mod 24 hours
+	var today = moment().format("MMMM D YYYY");
+
+	if (!MenuItems.findOne({ date: today})) {
+		Meteor.call("getMenus");
+	}
+
+}
 
 
 Meteor.methods({
