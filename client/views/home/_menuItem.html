@@ -1,7 +1,7 @@
 <template name="_menuItem">
   {{#with menuItem}} <!-- This instantiates the instance with the word "menuItem" as the variable passed through -->
       <div class="item item-button-left item-icon-right">
-        <button class="button">
+        <button class="button {{buttonEnabled upvotes currentUser._id}}">
           {{#if upvotes}}
             {{> ionIcon icon="arrow-up-c" }}
             {{upvotes.length}}&nbsp;&nbsp;&nbsp;

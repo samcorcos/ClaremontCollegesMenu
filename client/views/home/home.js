@@ -219,5 +219,13 @@ Template._menuItem.helpers({
     }
       return "ion-ios-star-outline";
     }
+  },
+
+  buttonEnabled: function(itemUpvotes, userId){
+    if(itemUpvotes){
+      if(itemUpvotes.indexOf(userId)!==-1){
+        return 'disabled';
+      }; 
+    } return;
   }
 })
