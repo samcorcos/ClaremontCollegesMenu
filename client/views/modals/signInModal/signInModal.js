@@ -25,7 +25,8 @@ Template.signInModal.events({
           password: t.find("#password").value,
           profile: {
             favorite: t.find("#favorite").value,
-            phone: t.find("#phone").value
+            phone: t.find("#phone").value,
+            text: true
           }
         }, function(err) {
           if (err) {

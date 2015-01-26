@@ -25,7 +25,7 @@ Template.settings.events({
   },
   'change #text-notifications': function(e,t) {
     var checkedStatus = t.find('#text-notifications').checked;
-    Meteor.call('changeText', checkedStatus);
+    Meteor.call('changeText', checkedStatus, Meteor.user()._id);
   }
 })
 

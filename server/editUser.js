@@ -4,6 +4,7 @@ Meteor.methods({
     if(thisUser.profile.starred){
       if(thisUser.profile.starred.indexOf(itemId)===-1){
         Meteor.users.update({_id:thisUser._id},{$addToSet: {"profile.starred": itemId}})
+        sendSMS(); // COMMENT THIS OUT IN PRODUCTION -- DEMO ONLY
       } else {
         Meteor.users.update({_id:thisUser._id},{$pull: {"profile.starred": itemId}})
       }
@@ -18,8 +19,15 @@ Meteor.methods({
   // changePush: function(newDefault) {
   //   // this is where we change user profle
   // },
-  changeText: function(newDefault) {
-    Meteor.users.update({ _id: Meteor.user()._id }, { $set: {"profile.text": newDefault}})
+  changeText: function(newDefault, userId) {
+    if (newDefault === true) {
+      Meteor.users.update({_id: userId}, { $set: { "profile.notifications": true }})
+      getNotifications();
+    } else {
+      Meteor.users.update({_id: userId}, { $set: { "profile.notifications": false }})
+      // This is where we need to think of the logic for "not receiving notifications"
+    }
+    Meteor.users.update({ _id: userId }, { $set: {"profile.text": newDefault}})
   },
   removeNotification: function(item, userId) {
     Meteor.users.update({ _id: userId }, { $pull: { "profile.notifications": { _id: item._id } } })

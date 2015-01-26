@@ -6,19 +6,21 @@ getNotifications = function() {
   var allUserNotifications = [];
 
   allUsers.forEach(function(user) { // for all users that have starred items
-    var starred = user.profile.starred;
-    var notifications = [];
+    if (user.profile.notifications !== false) {
+      var starred = user.profile.starred;
+      var notifications = [];
 
-    allMenuItems.forEach(function(item) { // for each item...
-      starred.forEach(function(starId) { // for each starred item...
-        item.phone = user.profile.phone;
-        if (starId == item._id) notifications.push(item) // if the item matches the id from the starred array, push the item to the notifications array
+      allMenuItems.forEach(function(item) { // for each item...
+        starred.forEach(function(starId) { // for each starred item...
+          item.phone = user.profile.phone;
+          if (starId == item._id) notifications.push(item) // if the item matches the id from the starred array, push the item to the notifications array
+        })
       })
-    })
 
-    allUserNotifications.push(notifications);
+      allUserNotifications.push(notifications);
 
-    Meteor.users.update({ _id: user._id }, { $set: { "profile.notifications": notifications }})
+      Meteor.users.update({ _id: user._id }, { $set: { "profile.notifications": notifications }})
+    }
 
   })
 
