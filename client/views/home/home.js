@@ -24,6 +24,9 @@ Template._home.helpers({
     if (Session.get("currentCollege") == "Frary") return "bar-energized";
     if (Session.get("currentCollege") == "Frank") return "bar-royal";
     if (Session.get("currentCollege") == "Oldenborg") return "bar-stable";
+  },
+  getCurrentCollege: function(){
+    return Session.get("currentCollege");
   }
 });
 
