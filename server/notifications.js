@@ -24,8 +24,19 @@ getNotifications = function() {
 
   })
 
-  Meteor.setTimeout(function() {
-    sendSMS(allUserNotifications);
-  }, 1000)//14400000)
+
+
+  // Meteor.setTimeout(function() {
+  //   sendSMS(allUserNotifications);
+  // }, 1000)//14400000)
+
+
+  sendEmail(allUserNotifications)
+  // Meteor.call('sendEmail',
+  //             'alice@example.com',
+  //             'bob@example.com',
+  //             'Hello from Meteor!',
+  //             'This is a test of Email.send.');
+
 
 }

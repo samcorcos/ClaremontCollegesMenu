@@ -24,4 +24,5 @@ sendSMS = function(arrayOfAllUserNotifications) {
 
     })
   })
+  console.log("Texts sent...");
 }

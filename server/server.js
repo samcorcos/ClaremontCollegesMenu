@@ -41,7 +41,6 @@ checkMenus = function() {
 Meteor.methods({
 	// This doesn't need to be called from the client anymore, explain how this works to Justin
 	getMenus: function(){
-		console.log("RUNNING");
 		var results = Meteor.http.get("https://aspc.pomona.edu/menu/", {timeout: 30000});
 		var html = results.content;
 		$ = cheerio.load(html);
@@ -96,7 +95,7 @@ Meteor.methods({
 		}, 30000)												// As much as I trust fibers, I dont want to risk it
 
 		// sendNotifications()			// Sends user notifications out for the day
-
+		console.log("Fetching menus...");
 		return 'BOOYA';
 
 	},
