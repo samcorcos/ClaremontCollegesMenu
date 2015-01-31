@@ -30,8 +30,10 @@ checkMenus = function() {
 	var now = new Date().getTime();
 	var msSince6AMPST = ((now - 1422097200000 - 10800000) % 86400000); // now, minus a day at 9am EST, - 3 hours in milliseconds, mod 24 hours
 	var today = moment().format("MMMM D YYYY");
+	var date = new Date();
+	var hours = date.getUTCHours() - 8;
 
-	if (!MenuItems.findOne({ date: today})) {
+	if ( (!MenuItems.findOne({date: today}))&& hours>6 ) {
 		Meteor.call("getMenus");
 	}
 

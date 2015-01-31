@@ -36,6 +36,10 @@ Template._home.helpers({
     if(itemCount === 0){
       return true;
     } return false;
+  },
+
+  getCurrentCollege: function(){
+    return Session.get("currentCollege");
   }
 
 });

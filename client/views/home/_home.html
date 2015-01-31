@@ -7,7 +7,7 @@
 {{/with}} -->
 
   {{#contentFor "headerTitle"}}
-    <h1 class="title">Menu</h1>
+    <h1 class="title {{themedBar}}" style='text-align: center'>Menus</h1>
   {{/contentFor}}
 
   {{#contentFor "headerButtonLeft"}}
@@ -89,12 +89,12 @@
         {{/if}}
 
         {{#if isEmpty college}}
-          {{#ionItem}}
+          
               <div class="empty-view">
                 {{> ionIcon icon="ios-book"}}
               No Menu Information Available
               </div>
-          {{/ionItem}}
+          
         {{/if}}
 
       {{/ionList}}
