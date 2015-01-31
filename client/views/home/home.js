@@ -25,23 +25,40 @@ Template._home.helpers({
     if (Session.get("currentCollege") == "Frank") return "bar-royal";
     if (Session.get("currentCollege") == "Oldenborg") return "bar-stable";
   },
+
+  isTrue: function(meal){
+    if(meal.count()) return true;
+    return false;
+  },
+
+  isEmpty: function(college){
+    var itemCount = MenuItems.find({college:college[0]}).count();
+    if(itemCount === 0){
+      return true;
+    } return false;
+  },
+
   getCurrentCollege: function(){
     return Session.get("currentCollege");
   }
+
 });
 
 
 currentDay = moment().format("MMMM D YYYY");
 
 Template.cmc.helpers({
-  breakfast: function() {
+  breakfast: function() { // This is going to need more logic...
     return MenuItems.find({college: "CMC", meal: "Breakfast", date: currentDay})
+  },
+  brunch: function() {
+    return MenuItems.find({college: "CMC", meal: "Brunch", date: currentDay})
   },
   lunch: function() {
     return MenuItems.find({college: "CMC", meal: "Lunch", date: currentDay})
   },
   dinner: function() {
-    return MenuItems.find({college: "CMC", meal: "Dinner", date: currentDay})
+     return MenuItems.find({college: "CMC", meal: "Dinner", date: currentDay})
   },
   college: function() {
     return ["CMC"];
@@ -56,11 +73,15 @@ Template.cmc.helpers({
     })
     return voteCount;
   }
+
 });
 
 Template.mudd.helpers({
   breakfast: function() {
     return MenuItems.find({college: "Mudd", meal: "Breakfast", date: currentDay})
+  },
+  brunch: function() {
+    return MenuItems.find({college: "Mudd", meal: "Brunch", date: currentDay})
   },
   lunch: function() {
     return MenuItems.find({college: "Mudd", meal: "Lunch", date: currentDay})
@@ -87,6 +108,9 @@ Template.scripps.helpers({
   breakfast: function() {
     return MenuItems.find({college: "Scripps", meal: "Breakfast", date: currentDay})
   },
+  brunch: function() {
+    return MenuItems.find({college: "Scripps", meal: "Brunch", date: currentDay})
+  },
   lunch: function() {
     return MenuItems.find({college: "Scripps", meal: "Lunch", date: currentDay})
   },
@@ -111,6 +135,9 @@ Template.scripps.helpers({
 Template.pitzer.helpers({
   breakfast: function() {
     return MenuItems.find({college: "Pitzer", meal: "Breakfast", date: currentDay})
+  },
+  brunch: function() {
+    return MenuItems.find({college: "Pitzer", meal: "Brunch", date: currentDay})
   },
   lunch: function() {
     return MenuItems.find({college: "Pitzer", meal: "Lunch", date: currentDay})
@@ -137,6 +164,9 @@ Template.frary.helpers({
   breakfast: function() {
     return MenuItems.find({college: "Frary", meal: "Breakfast", date: currentDay})
   },
+  brunch: function() {
+    return MenuItems.find({college: "Frary", meal: "Brunch", date: currentDay})
+  },
   lunch: function() {
     return MenuItems.find({college: "Frary", meal: "Lunch", date: currentDay})
   },
@@ -162,6 +192,9 @@ Template.frank.helpers({
   breakfast: function() {
     return MenuItems.find({college: "Frank", meal: "Breakfast", date: currentDay})
   },
+  brunch: function() {
+    return MenuItems.find({college: "Frank", meal: "Brunch", date: currentDay})
+  },
   lunch: function() {
     return MenuItems.find({college: "Frank", meal: "Lunch", date: currentDay})
   },
@@ -184,28 +217,31 @@ Template.frank.helpers({
 });
 
 Template.oldenborg.helpers({
-  breakfast: function() {
-    return MenuItems.find({college: "Oldenborg", meal: "Breakfast", date: currentDay})
-  },
-  lunch: function() {
-    return MenuItems.find({college: "Oldenborg", meal: "Lunch", date: currentDay})
-  },
-  dinner: function() {
-    return MenuItems.find({college: "Oldenborg", meal: "Dinner", date: currentDay})
-  },
-  college: function() {
-    return ["Oldenborg"];
-  },
-  score: function() {
-    var currentItems = MenuItems.find({college: "Oldenborg"}).fetch();
-    var voteCount = 0;
-    currentItems.forEach(function(item){
-      if (item.hasOwnProperty("upvotes")) {
-        voteCount += item.upvotes.length;
-      }
-    })
-    return voteCount;
-  }
+    breakfast: function() {
+      return MenuItems.find({college: "Oldenborg", meal: "Breakfast", date: currentDay})
+    },
+    brunch: function() {
+      return MenuItems.find({college: "Oldenborg", meal: "Brunch", date: currentDay})
+    },
+    lunch: function() {
+      return MenuItems.find({college: "Oldenborg", meal: "Lunch", date: currentDay})
+    },
+    dinner: function() {
+      return MenuItems.find({college: "Oldenborg", meal: "Dinner", date: currentDay})
+    },
+    college: function() {
+      return ["Oldenborg"];
+    },
+    score: function() {
+      var currentItems = MenuItems.find({college: "Oldenborg"}).fetch();
+      var voteCount = 0;
+      currentItems.forEach(function(item){
+        if (item.hasOwnProperty("upvotes")) {
+          voteCount += item.upvotes.length;
+        }
+      })
+      return voteCount;
+    }
 });
 
 Template.landing.rendered = function() {
@@ -228,7 +264,7 @@ Template._menuItem.helpers({
     if(itemUpvotes){
       if(itemUpvotes.indexOf(userId)!==-1){
         return 'disabled';
-      }; 
+      };
     } return;
   }
 })
