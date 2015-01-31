@@ -89,9 +89,12 @@
         {{/if}}
 
         {{#if isEmpty college}}
-          <div class="bar bar-header bar-dark">
-            <h1 style="margin-top:-7px;" class="title">No Data</h1>
-          </div>
+          {{#ionItem}}
+              <div class="empty-view">
+                {{> ionIcon icon="ios-book"}}
+              No Menu Information Available
+              </div>
+          {{/ionItem}}
         {{/if}}
 
       {{/ionList}}

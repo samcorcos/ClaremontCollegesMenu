@@ -32,9 +32,7 @@ Template._home.helpers({
   },
 
   isEmpty: function(college){
-    var itemCount = MenuItems.find({college:college}).count();
-    console.log("itemCount",itemCount,college)
-    console.log('Session ',Session.get("currentCollege"))
+    var itemCount = MenuItems.find({college:college[0]}).count();
     if(itemCount === 0){
       return true;
     } return false;
