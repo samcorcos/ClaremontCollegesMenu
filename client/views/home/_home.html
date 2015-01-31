@@ -40,7 +40,7 @@
   Candy Bars
 </div> -->
 
-        {{#if breakfast}}
+        {{#if isTrue breakfast}}
           {{#ionItem}}
             <div class="bar bar-header bar-dark">
               <h1 style="margin-top:-7px;" class="title">Breakfast</h1>
@@ -52,7 +52,7 @@
           {{/each}}
         {{/if}}
 
-        {{#if brunch}}
+        {{#if isTrue brunch}}
           {{#ionItem}}
           <div class="bar bar-header bar-dark">
             <h1 style="margin-top:-7px;" class="title">Brunch</h1>
@@ -64,7 +64,7 @@
           {{/each}}
         {{/if}}
 
-        {{#if lunch}}
+        {{#if isTrue lunch}}
           {{#ionItem}}
           <div class="bar bar-header bar-dark">
             <h1 style="margin-top:-7px;" class="title">Lunch</h1>
@@ -76,7 +76,7 @@
           {{/each}}
         {{/if}}
 
-        {{#if dinner}}
+        {{#if isTrue dinner}}
           {{#ionItem}}
           <div class="bar bar-header bar-dark">
             <h1 style="margin-top:-7px;" class="title">Dinner</h1>
@@ -86,6 +86,12 @@
           {{#each sorted dinner}}
             {{> _menuItem menuItem=this}}
           {{/each}}
+        {{/if}}
+
+        {{#if isEmpty college}}
+          <div class="bar bar-header bar-dark">
+            <h1 style="margin-top:-7px;" class="title">No Data</h1>
+          </div>
         {{/if}}
 
       {{/ionList}}
