@@ -40,35 +40,54 @@
   Candy Bars
 </div> -->
 
-        {{#ionItem}}
+        {{#if breakfast}}
+          {{#ionItem}}
+            <div class="bar bar-header bar-dark">
+              <h1 style="margin-top:-7px;" class="title">Breakfast</h1>
+            </div>
+          {{/ionItem}}
+
+          {{#each sorted breakfast}}
+            {{> _menuItem menuItem=this}}
+          {{/each}}
+        {{/if}}
+
+        {{#if brunch}}
+          {{#ionItem}}
           <div class="bar bar-header bar-dark">
-            <h1 style="margin-top:-7px;" class="title">Breakfast</h1>
+            <h1 style="margin-top:-7px;" class="title">Brunch</h1>
           </div>
-        {{/ionItem}}
+          {{/ionItem}}
 
-        {{#each sorted breakfast}}
-          {{> _menuItem menuItem=this}}
-        {{/each}}
+          {{#each sorted brunch}}
+            {{> _menuItem menuItem=this}}
+          {{/each}}
+        {{/if}}
 
-        {{#ionItem}}
-        <div class="bar bar-header bar-dark">
-          <h1 style="margin-top:-7px;" class="title">Lunch</h1>
-        </div>
-        {{/ionItem}}
+        {{#if lunch}}
+          {{#ionItem}}
+          <div class="bar bar-header bar-dark">
+            <h1 style="margin-top:-7px;" class="title">Lunch</h1>
+          </div>
+          {{/ionItem}}
 
-        {{#each sorted lunch}}
-          {{> _menuItem menuItem=this}}
-        {{/each}}
+          {{#each sorted lunch}}
+            {{> _menuItem menuItem=this}}
+          {{/each}}
+        {{/if}}
 
-        {{#ionItem}}
-        <div class="bar bar-header bar-dark">
-          <h1 style="margin-top:-7px;" class="title">Dinner</h1>
-        </div>
-        {{/ionItem}}
+        {{#if dinner}}
+          {{#ionItem}}
+          <div class="bar bar-header bar-dark">
+            <h1 style="margin-top:-7px;" class="title">Dinner</h1>
+          </div>
+          {{/ionItem}}
 
-        {{#each sorted dinner}}
-          {{> _menuItem menuItem=this}}
-        {{/each}}
+          {{#each sorted dinner}}
+            {{> _menuItem menuItem=this}}
+          {{/each}}
+        {{/if}}
+
       {{/ionList}}
 
     {{/ionContent}}

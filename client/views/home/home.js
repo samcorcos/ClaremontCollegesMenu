@@ -31,8 +31,11 @@ Template._home.helpers({
 currentDay = moment().format("MMMM D YYYY");
 
 Template.cmc.helpers({
-  breakfast: function() {
+  breakfast: function() { // This is going to need more logic...
     return MenuItems.find({college: "CMC", meal: "Breakfast", date: currentDay})
+  },
+  brunch: function() {
+    return MenuItems.find({college: "CMC", meal: "Brunch", date: currentDay})
   },
   lunch: function() {
     return MenuItems.find({college: "CMC", meal: "Lunch", date: currentDay})
@@ -59,6 +62,9 @@ Template.mudd.helpers({
   breakfast: function() {
     return MenuItems.find({college: "Mudd", meal: "Breakfast", date: currentDay})
   },
+  brunch: function() {
+    return MenuItems.find({college: "Mudd", meal: "Brunch", date: currentDay})
+  },
   lunch: function() {
     return MenuItems.find({college: "Mudd", meal: "Lunch", date: currentDay})
   },
@@ -83,6 +89,9 @@ Template.mudd.helpers({
 Template.scripps.helpers({
   breakfast: function() {
     return MenuItems.find({college: "Scripps", meal: "Breakfast", date: currentDay})
+  },
+  brunch: function() {
+    return MenuItems.find({college: "Scripps", meal: "Brunch", date: currentDay})
   },
   lunch: function() {
     return MenuItems.find({college: "Scripps", meal: "Lunch", date: currentDay})
@@ -109,6 +118,9 @@ Template.pitzer.helpers({
   breakfast: function() {
     return MenuItems.find({college: "Pitzer", meal: "Breakfast", date: currentDay})
   },
+  brunch: function() {
+    return MenuItems.find({college: "Pitzer", meal: "Brunch", date: currentDay})
+  },
   lunch: function() {
     return MenuItems.find({college: "Pitzer", meal: "Lunch", date: currentDay})
   },
@@ -133,6 +145,9 @@ Template.pitzer.helpers({
 Template.frary.helpers({
   breakfast: function() {
     return MenuItems.find({college: "Frary", meal: "Breakfast", date: currentDay})
+  },
+  brunch: function() {
+    return MenuItems.find({college: "Frary", meal: "Brunch", date: currentDay})
   },
   lunch: function() {
     return MenuItems.find({college: "Frary", meal: "Lunch", date: currentDay})
@@ -159,6 +174,9 @@ Template.frank.helpers({
   breakfast: function() {
     return MenuItems.find({college: "Frank", meal: "Breakfast", date: currentDay})
   },
+  brunch: function() {
+    return MenuItems.find({college: "Frank", meal: "Brunch", date: currentDay})
+  },
   lunch: function() {
     return MenuItems.find({college: "Frank", meal: "Lunch", date: currentDay})
   },
@@ -183,6 +201,9 @@ Template.frank.helpers({
 Template.oldenborg.helpers({
   breakfast: function() {
     return MenuItems.find({college: "Oldenborg", meal: "Breakfast", date: currentDay})
+  },
+  brunch: function() {
+    return MenuItems.find({college: "Oldenborg", meal: "Brunch", date: currentDay})
   },
   lunch: function() {
     return MenuItems.find({college: "Oldenborg", meal: "Lunch", date: currentDay})
@@ -225,7 +246,7 @@ Template._menuItem.helpers({
     if(itemUpvotes){
       if(itemUpvotes.indexOf(userId)!==-1){
         return 'disabled';
-      }; 
+      };
     } return;
   }
 })
