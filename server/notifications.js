@@ -31,7 +31,7 @@ getNotifications = function() {
   // }, 1000)//14400000)
 
 
-  sendEmail(allUserNotifications)
+  // sendEmail(allUserNotifications)
   // Meteor.call('sendEmail',
   //             'alice@example.com',
   //             'bob@example.com',

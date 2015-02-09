@@ -55,13 +55,18 @@ Template._defaultCollege.helpers({
 
 Template._removeNotificationItem.helpers({
   myStarred: function() {
-    var userStarredArray = Meteor.user().profile.starred;
-    var userStarredObjects = [];
-    userStarredArray.forEach(function(starredItemId) {
-      var itemObj = MenuItems.findOne({ _id: starredItemId});
-      userStarredObjects.push(itemObj);
-    })
-    return userStarredObjects;
+    if (Meteor.user().profile.starred) {
+      var userStarredArray = Meteor.user().profile.starred;
+      var userStarredObjects = [];
+      userStarredArray.forEach(function(starredItemId) {
+        var itemObj = MenuItems.findOne({ _id: starredItemId});
+        userStarredObjects.push(itemObj);
+      })
+      return userStarredObjects;
+    } else {
+      return null;
+    }
+
   }
   // then I need a method to remove from user starred
 })
